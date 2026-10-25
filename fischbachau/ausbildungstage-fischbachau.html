@@ -160,11 +160,6 @@
   .ev p { color: var(--muted); }
   .ev .who { flex: none; display: flex; align-items: center; gap: 1.1mm; }
   .ev .who .lbl { margin-right: .8mm; font-size: 6.2pt; }
-  .tag {
-    font-size: 6.1pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap;
-    padding: .25mm 1.6mm; border-radius: 1mm; color: var(--paper); background: var(--c, var(--pine-3)); line-height: 1.5;
-  }
-  .tag.ghost { background: transparent; color: var(--ember); border: 1px dashed var(--ember); }
 
   .ev.drive { --c: var(--sky); }
   .ev.prog  { --c: var(--moss); }
@@ -182,7 +177,6 @@
   .ev.party h3 { color: var(--paper); font-family: "Fraunces", serif; font-size: 12pt; font-weight: 800; }
   .ev.party p { color: #f1d7bd; }
   .ev.party p b { color: #fff; }
-  .ev.party .tag { background: var(--amber); color: #2a1a12; }
   .ev.party .dot { border-color: var(--ember); background: var(--ember); }
   .eq { display: flex; gap: .7mm; align-items: flex-end; height: 7mm; flex: none; }
   .eq i { display: block; width: 1mm; background: var(--amber); border-radius: .3mm; opacity: .9; }
@@ -326,39 +320,39 @@
     <ol class="tl">
       <li class="ev drive">
         <div class="t">ca. 14:00</div><div class="dot"></div>
-        <div class="b"><div class="main"><h3>Abfahrt an der Schule <span class="tag">Fahrt</span></h3><p>Direkt nach der Schule geht’s los – ab in die drei Autos.</p></div></div>
+        <div class="b"><div class="main"><h3>Abfahrt an der Schule</h3><p>Direkt nach der Schule geht’s los – ab in die drei Autos.</p></div></div>
       </li>
       <li class="ev food">
         <div class="t">15:30<small>bis 16:30</small></div><div class="dot"></div>
-        <div class="b"><div class="main"><h3>Treffpunkt: Kaffee &amp; Kuchen im Café Winklstüberl <span class="tag">Treffpunkt</span></h3><p>Alle treffen sich hier, ca. eine Stunde Pause · Leitzachtalstraße 68, Fischbachau</p></div></div>
+        <div class="b"><div class="main"><h3>Treffpunkt: Kaffee &amp; Kuchen im Café Winklstüberl</h3><p>Alle treffen sich hier, ca. eine Stunde Pause · Leitzachtalstraße 68, Fischbachau</p></div></div>
       </li>
       <li class="ev prog">
         <div class="t">16:30<small>bis ca. 18:00</small></div><div class="dot"></div>
-        <div class="b"><div class="main"><h3>Erlebnispädagogik <span class="tag">Programm</span></h3><p>Im Garten der Unterkunft – oder, falls wir noch nicht rein dürfen, auf dem öffentlichen Platz draußen.</p></div>
-          <div class="who"><span class="lbl">Team</span><span class="chip">Patrick</span><span class="chip">Fabio</span><span class="chip">Felix</span></div></div>
+        <div class="b"><div class="main"><h3>Erlebnispädagogik</h3><p>Im Garten der Unterkunft – oder, falls wir noch nicht rein dürfen, auf dem öffentlichen Platz draußen.</p></div>
+          <div class="who"><span class="lbl">Team</span><span class="chip">Patrick</span><span class="chip">Fabio</span><span class="chip">Felix</span><span class="chip open">+ du?</span></div></div>
       </li>
       <li class="ev food">
         <div class="t">18:30<small>bis 20:00</small></div><div class="dot"></div>
-        <div class="b"><div class="main"><h3>Gemeinsam kochen &amp; herrichten <span class="tag">Abendessen</span></h3><p>Nudeln mit Soße, dazu Salat · Nachspeise noch offen</p></div>
+        <div class="b"><div class="main"><h3>Gemeinsam kochen &amp; herrichten</h3><p>Nudeln mit Soße, dazu Salat · Nachspeise noch offen</p></div>
           <div class="who"><span class="lbl">Kochteam</span><span class="chip">Elena</span><span class="chip">Selma</span><span class="chip">Hatice</span></div></div>
       </li>
       <li class="ev prog">
         <div class="t">20:00<small>bis 21:00</small></div><div class="dot"></div>
-        <div class="b"><div class="main"><h3>Kunstspaß <span class="tag">Programm</span></h3><p>Kreativ werden – mit Elena &amp; Hatice.</p></div>
+        <div class="b"><div class="main"><h3>Kunstspaß</h3><p>Kreativ werden – mit Elena &amp; Hatice.</p></div>
           <div class="who"><span class="lbl">Mit</span><span class="chip">Elena</span><span class="chip">Hatice</span></div></div>
       </li>
       <li class="ev eve">
         <div class="t">ab 21:00</div><div class="dot"></div>
-        <div class="b"><div class="main"><h3>Das legendäre Pub-Quiz <span class="tag">Abend</span></h3><p>Teams bilden, Köpfe rauchen lassen.</p></div>
+        <div class="b"><div class="main"><h3>Das legendäre Pub-Quiz</h3><p>Teams bilden, Köpfe rauchen lassen.</p></div>
           <div class="who"><span class="lbl">Quizmaster</span><span class="chip">Fabio</span><span class="chip">Katrin</span></div></div>
       </li>
       <li class="ev end">
         <div class="t">22:00</div><div class="dot"></div>
-        <div class="b"><div class="main"><h3>Offizielles Ende <span class="tag">Feierabend</span></h3><p>Wer mag, kann ab ins Bett – alle anderen sind herzlich eingeladen zur …</p></div></div>
+        <div class="b"><div class="main"><h3>Offizielles Ende</h3><p>Wer mag, kann ab ins Bett – alle anderen sind herzlich eingeladen zur …</p></div></div>
       </li>
       <li class="ev party">
         <div class="t">danach<small>Open End</small></div><div class="dot"></div>
-        <div class="b"><div class="main"><h3>Halligalli-Party <span class="tag">Open End</span></h3>
+        <div class="b"><div class="main"><h3>Halligalli-Party</h3>
           <p>Powered by <b>Patrick</b> &amp; <b>Felix</b> – with a legendary Spotify playlist. So lange, wie ihr Bock habt!</p></div>
           <div class="eq"><i style="height:35%"></i><i style="height:80%"></i><i style="height:55%"></i><i style="height:100%"></i><i style="height:45%"></i><i style="height:70%"></i><i style="height:30%"></i></div></div>
       </li>
@@ -385,29 +379,29 @@
     <ol class="tl">
       <li class="ev food">
         <div class="t">08:00</div><div class="dot"></div>
-        <div class="b"><div class="main"><h3>Gemeinsames Frühstück <span class="tag">Frühstück</span></h3><p>Foodsharing-Buffet + Livias richtig leckere Waffeln für alle.</p></div>
+        <div class="b"><div class="main"><h3>Gemeinsames Frühstück</h3><p>Foodsharing-Buffet + Livias richtig leckere Waffeln für alle.</p></div>
           <div class="who"><span class="lbl">Team</span><span class="chip">Lisa</span><span class="chip">Livia</span><span class="chip">Felix</span><span class="chip open">+ du?</span></div></div>
       </li>
       <li class="ev end">
         <div class="t">09:30<small>bis 10:00</small></div><div class="dot"></div>
-        <div class="b"><div class="main"><h3>Zusammenpacken &amp; Check-out <span class="tag">Abreise</span></h3><p>Zimmer räumen, Küche aufräumen, Autos beladen.</p></div></div>
+        <div class="b"><div class="main"><h3>Zusammenpacken &amp; Check-out</h3><p>Zimmer räumen, Küche aufräumen, Autos beladen.</p></div></div>
       </li>
       <li class="ev drive">
         <div class="t">danach</div><div class="dot"></div>
-        <div class="b"><div class="main"><h3>Gemeinsame Fahrt an den Schliersee <span class="tag">Fahrt</span></h3><p>In denselben Fahrgemeinschaften wie bei der Anreise.</p></div></div>
+        <div class="b"><div class="main"><h3>Gemeinsame Fahrt an den Schliersee</h3><p>In denselben Fahrgemeinschaften wie bei der Anreise.</p></div></div>
       </li>
       <li class="ev prog">
         <div class="t">Vormittag</div><div class="dot"></div>
-        <div class="b"><div class="main"><h3>Wanderung hinauf zur Schliersbergalm <span class="tag">Wandern</span></h3><p>Ca. 1¼ Std. Aufstieg, rund 280 Hm · oben Einkehr auf eigene Kosten</p></div>
+        <div class="b"><div class="main"><h3>Wanderung hinauf zur Schliersbergalm</h3><p>Ca. 1¼ Std. Aufstieg, rund 280 Hm · oben Einkehr auf eigene Kosten</p></div>
           <div class="who"><span class="lbl">Guides</span><span class="chip">Patrick</span><span class="chip">Fabio</span><span class="chip">Felix</span></div></div>
       </li>
       <li class="ev prog">
         <div class="t">Mittag</div><div class="dot"></div>
-        <div class="b"><div class="main"><h3>Gemeinsamer Abstieg <span class="tag">Wandern</span></h3><p>Zurück ins Tal, ca. 45–60 Minuten.</p></div></div>
+        <div class="b"><div class="main"><h3>Gemeinsamer Abstieg</h3><p>Zurück ins Tal, ca. 45–60 Minuten.</p></div></div>
       </li>
       <li class="ev end">
         <div class="t">ca. 14:00</div><div class="dot"></div>
-        <div class="b"><div class="main"><h3>Offizielles Ende – unten am Schliersee <span class="tag">Schluss</span></h3><p>Danke für zwei geniale Tage! Jede:r fährt individuell nach Hause.</p></div></div>
+        <div class="b"><div class="main"><h3>Offizielles Ende – unten am Schliersee</h3><p>Danke für zwei geniale Tage! Jede:r fährt individuell nach Hause.</p></div></div>
       </li>
     </ol>
 
@@ -482,6 +476,7 @@
         <p>Einfach kurz Bescheid geben – das wird eine richtig coole Runde!</p>
       </div>
       <ul>
+        <li><em>Hilfe gesucht</em>Erlebnispädagogik</li>
         <li><em>Gern mehr</em>Frühstücksteam</li>
         <li><em>Gern mehr</em>Wanderung</li>
       </ul>
