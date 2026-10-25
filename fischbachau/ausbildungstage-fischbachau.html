@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Ausbildungstage Fischbachau – Seminar 39.2</title>
+<style>
+  @font-face { font-family: "Fraunces"; font-style: normal; font-weight: 100 900; src: url("fonts/fraunces-latin.woff2") format("woff2"); }
+  @font-face { font-family: "Fraunces"; font-style: italic; font-weight: 100 900; src: url("fonts/fraunces-italic-latin.woff2") format("woff2"); }
+
+  :root {
+    --pine: #1d3a2c;
+    --pine-2: #2c5440;
+    --pine-3: #3f6d52;
+    --moss: #7a9a58;
+    --ember: #d4622a;
+    --amber: #eaa53c;
+    --cream: #f6f1e6;
+    --paper: #fffdf8;
+    --ink: #1b221e;
+    --muted: #5b6a61;
+    --line: #e3dccb;
+    --sky: #4d7489;
+  }
+
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--cream); }
+  body {
+    font-family: "Inter", "Liberation Sans", sans-serif;
+    color: var(--ink);
+    font-size: 8.5pt;
+    line-height: 1.36;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    position: relative;
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    background: var(--cream);
+    break-after: page;
+  }
+  .page:last-child { break-after: auto; }
+  .content { padding: 0 14mm; }
+
+  /* ---------- Hero (Seite 1) ---------- */
+  .hero {
+    position: relative;
+    height: 65mm;
+    background:
+      radial-gradient(110mm 55mm at 88% 0%, rgba(234,165,60,.22), transparent 70%),
+      linear-gradient(180deg, #17301f 0%, var(--pine) 55%, var(--pine-2) 100%);
+    color: var(--cream);
+    padding: 9mm 14mm 0;
+  }
+  .hero svg.mountains { position: absolute; left: 0; bottom: -1px; width: 100%; height: 29mm; }
+  .p1 .ev + .ev { margin-top: 2.5mm; }
+  .p1 .sec { margin: 6mm 0 3mm; }
+  .kicker {
+    font-size: 7.4pt; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--amber); font-weight: 600;
+  }
+  .hero h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 800; font-size: 31pt; line-height: .98; letter-spacing: -.01em;
+    margin-top: 2.4mm;
+  }
+  .hero h1 em { display: block; font-style: italic; font-weight: 600; color: var(--amber); font-size: 27pt; }
+  .hero .lede { margin-top: 2.6mm; font-size: 9pt; color: #d9e3d6; }
+
+  .datebadge {
+    position: absolute; right: 14mm; top: 9mm; width: 50mm;
+    background: rgba(246,241,230,.08);
+    border: 1px solid rgba(246,241,230,.25);
+    border-radius: 3.5mm;
+    padding: 3.4mm 4.2mm;
+  }
+  .datebadge .row { display: flex; align-items: baseline; gap: 2.4mm; }
+  .datebadge .row + .row { margin-top: 1.3mm; }
+  .datebadge .dow { width: 7mm; font-size: 7.2pt; letter-spacing: .14em; text-transform: uppercase; color: var(--amber); font-weight: 700; }
+  .datebadge .d { font-family: "Fraunces", serif; font-size: 16pt; font-weight: 700; line-height: 1; }
+  .datebadge .m { font-size: 7.8pt; color: #cfdacb; }
+  .datebadge .yr { margin-top: 2mm; padding-top: 1.8mm; border-top: 1px solid rgba(246,241,230,.2); font-size: 7.4pt; color: #cfdacb; letter-spacing: .04em; }
+
+  /* ---------- Facts strip ---------- */
+  .facts {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 3mm;
+    margin-top: -2mm;
+    position: relative; z-index: 2;
+    box-shadow: 0 1.2mm 3.5mm rgba(29,58,44,.08);
+  }
+  .fact { padding: 2.3mm 3.4mm 2.5mm; }
+  .fact + .fact { border-left: 1px solid var(--line); }
+  .lbl { font-size: 6.4pt; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .fact .val { margin-top: .4mm; font-weight: 700; font-size: 9.4pt; color: var(--pine); line-height: 1.2; }
+  .fact .sub { font-size: 7.3pt; color: var(--muted); line-height: 1.3; }
+
+  /* ---------- Section headings ---------- */
+  .sec { display: flex; align-items: center; gap: 2.6mm; margin: 5mm 0 2.6mm; }
+  .sec .num {
+    font-family: "Fraunces", serif; font-weight: 800; font-size: 8.4pt;
+    width: 5.8mm; height: 5.8mm; border-radius: 50%;
+    background: var(--ember); color: var(--paper);
+    display: inline-flex; align-items: center; justify-content: center; flex: none;
+  }
+  .sec h2 { font-family: "Fraunces", serif; font-weight: 700; font-size: 14pt; color: var(--pine); line-height: 1; }
+  .sec .hint { margin-left: auto; font-size: 7.6pt; color: var(--muted); }
+  .sec .hint b { color: var(--ember); }
+
+  /* ---------- Chips ---------- */
+  .chip {
+    display: inline-block; padding: .4mm 1.9mm; border-radius: 10mm; white-space: nowrap;
+    background: #ebf0e4; color: var(--pine); font-weight: 600; font-size: 7.3pt;
+    border: 1px solid #d7e1cc; line-height: 1.35;
+  }
+  .chip.open { background: transparent; border: 1px dashed var(--ember); color: var(--ember); }
+
+  /* ---------- Cars ---------- */
+  .cars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; }
+  .car {
+    background: var(--paper); border: 1px solid var(--line); border-radius: 3mm;
+    padding: 2.6mm 3mm 2.8mm 3.6mm; position: relative;
+  }
+  .car::before {
+    content: ""; position: absolute; left: 0; top: 2.8mm; bottom: 2.8mm; width: 1mm;
+    border-radius: 0 1mm 1mm 0; background: var(--pine-3);
+  }
+  .car .lbl { display: flex; align-items: center; gap: 1.4mm; }
+  .car .lbl svg { width: 3.8mm; height: 3.8mm; }
+  .car .driver { font-family: "Fraunces", serif; font-weight: 700; font-size: 11.5pt; color: var(--pine); margin-top: .2mm; line-height: 1.2; }
+  .car ul { list-style: none; margin-top: 1.6mm; display: flex; flex-wrap: wrap; gap: 1.2mm; }
+
+  /* ---------- Timeline ---------- */
+  .tl { list-style: none; position: relative; }
+  .tl::before {
+    content: ""; position: absolute; left: 22.6mm; top: 2mm; bottom: 2mm; width: .45mm;
+    background: repeating-linear-gradient(180deg, #d6cfbd 0 1.4mm, transparent 1.4mm 2.4mm);
+  }
+  .ev { display: grid; grid-template-columns: 19.5mm 7mm 1fr; align-items: start; }
+  .ev + .ev { margin-top: 1.3mm; }
+  .ev .t { text-align: right; font-family: "Fraunces", serif; font-weight: 700; font-size: 10.4pt; color: var(--pine); line-height: 1.12; padding-top: 1.5mm; white-space: nowrap; }
+  .ev .t small { display: block; font-family: "Inter", sans-serif; font-weight: 500; font-size: 7pt; color: var(--muted); }
+  .ev .dot {
+    width: 3mm; height: 3mm; border-radius: 50%; margin: 2.2mm 0 0 1.8mm;
+    background: var(--paper); border: .65mm solid var(--c, var(--pine-3)); position: relative; z-index: 1;
+  }
+  .ev .b {
+    background: var(--paper); border: 1px solid var(--line); border-radius: 2.4mm;
+    padding: 1.5mm 3.2mm 1.7mm;
+    display: flex; align-items: center; gap: 3mm;
+  }
+  .ev .main { flex: 1; min-width: 0; }
+  .ev h3 { font-size: 9.1pt; font-weight: 700; color: var(--ink); display: flex; align-items: center; gap: 1.8mm; flex-wrap: wrap; line-height: 1.3; }
+  .ev p { color: var(--muted); }
+  .ev .who { flex: none; display: flex; align-items: center; gap: 1.1mm; }
+  .ev .who .lbl { margin-right: .8mm; font-size: 6.2pt; }
+  .tag {
+    font-size: 6.1pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap;
+    padding: .25mm 1.6mm; border-radius: 1mm; color: var(--paper); background: var(--c, var(--pine-3)); line-height: 1.5;
+  }
+  .tag.ghost { background: transparent; color: var(--ember); border: 1px dashed var(--ember); }
+
+  .ev.drive { --c: var(--sky); }
+  .ev.prog  { --c: var(--moss); }
+  .ev.food  { --c: var(--amber); }
+  .ev.eve   { --c: var(--ember); }
+  .ev.end   { --c: var(--pine); }
+  .ev.end .b { background: #edf1e8; border-color: #d5dfcb; }
+
+  .ev.party .b {
+    background:
+      radial-gradient(60mm 30mm at 100% 0%, rgba(234,165,60,.35), transparent 70%),
+      linear-gradient(120deg, #2a1a12 0%, #4a2416 55%, #7a3a1a 100%);
+    border: none; color: var(--cream); padding: 2.2mm 3.6mm 2.4mm;
+  }
+  .ev.party h3 { color: var(--paper); font-family: "Fraunces", serif; font-size: 12pt; font-weight: 800; }
+  .ev.party p { color: #f1d7bd; }
+  .ev.party p b { color: #fff; }
+  .ev.party .tag { background: var(--amber); color: #2a1a12; }
+  .ev.party .dot { border-color: var(--ember); background: var(--ember); }
+  .eq { display: flex; gap: .7mm; align-items: flex-end; height: 7mm; flex: none; }
+  .eq i { display: block; width: 1mm; background: var(--amber); border-radius: .3mm; opacity: .9; }
+
+  /* ---------- Footer ---------- */
+  .foot {
+    position: absolute; left: 14mm; right: 14mm; bottom: 7mm;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 6.9pt; color: var(--muted); letter-spacing: .04em;
+    border-top: 1px solid var(--line); padding-top: 2mm;
+  }
+  .foot b { color: var(--pine); font-weight: 700; }
+
+  /* ---------- Band (Seite 2) ---------- */
+  .band {
+    position: relative; height: 31mm; color: var(--cream);
+    background:
+      radial-gradient(90mm 40mm at 88% 0%, rgba(234,165,60,.2), transparent 70%),
+      linear-gradient(180deg, #17301f 0%, var(--pine) 60%, var(--pine-2) 100%);
+    padding: 7.5mm 14mm 0;
+  }
+  .band svg { position: absolute; left: 0; bottom: -1px; width: 100%; height: 10mm; }
+  .band h2 { font-family: "Fraunces", serif; font-weight: 800; font-size: 19pt; line-height: 1.1; margin-top: 1mm; }
+  .band h2 em { font-style: italic; font-weight: 600; color: var(--amber); }
+  .band .side { position: absolute; right: 14mm; top: 8.5mm; text-align: right; font-size: 7.6pt; color: #cfdacb; }
+  .band .side b { display: block; font-family: "Fraunces", serif; font-size: 12.5pt; color: var(--cream); }
+
+  /* ---------- Meals ---------- */
+  .meals { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; }
+  .meal { background: var(--paper); border: 1px solid var(--line); border-radius: 3mm; padding: 2.8mm 3.4mm 3mm; }
+  .meal header { display: flex; align-items: center; gap: 2.4mm; }
+  .meal .ico {
+    width: 8mm; height: 8mm; border-radius: 2mm; flex: none;
+    display: flex; align-items: center; justify-content: center; font-size: 12pt; background: #f8ead2;
+  }
+  .meal h4 { font-size: 9.4pt; font-weight: 700; color: var(--pine); line-height: 1.2; }
+  .meal .who-line { font-size: 6.3pt; letter-spacing: .13em; text-transform: uppercase; color: var(--ember); font-weight: 700; margin-top: .3mm; }
+  .meal p { margin-top: 1.8mm; color: var(--muted); }
+  .meal p b { color: var(--ink); }
+
+  /* ---------- Packliste ---------- */
+  .pack {
+    background: var(--paper); border: 1px solid var(--line); border-radius: 3mm;
+    padding: 3mm 3.8mm 3.2mm;
+    display: grid; grid-template-columns: 1.05fr 1fr 1fr; column-gap: 5mm;
+  }
+  .pack h5 { font-size: 6.4pt; letter-spacing: .16em; text-transform: uppercase; color: var(--ember); font-weight: 700; margin-bottom: .8mm; }
+  .pack h5:not(:first-child) { margin-top: 2.4mm; }
+  .pack ul { list-style: none; }
+  .pack li { display: flex; gap: 1.8mm; align-items: flex-start; padding: .55mm 0; }
+  .pack li + li { border-top: 1px dotted var(--line); }
+  .box {
+    flex: none; width: 3mm; height: 3mm; border: .35mm solid var(--pine-3); border-radius: .7mm; margin-top: .35mm;
+    background: var(--paper);
+  }
+  .pack li.must .box { border-color: var(--ember); background: #fbe9dd; }
+  .pack li.must > span:last-child { font-weight: 700; }
+  .pack li small { display: block; color: var(--muted); font-size: 7pt; font-weight: 400; }
+
+  /* ---------- Crew ---------- */
+  .crew { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2.2mm; }
+  .crew > div { background: var(--paper); border: 1px solid var(--line); border-radius: 2.4mm; padding: 2mm 2.4mm; }
+  .crew .r { font-size: 6.1pt; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  .crew .n { font-weight: 700; color: var(--pine); font-size: 8pt; margin-top: .4mm; line-height: 1.25; }
+
+  /* ---------- Mitmachen ---------- */
+  .join {
+    margin-top: 4mm; border-radius: 3mm; color: var(--cream); padding: 3.6mm 4.4mm;
+    background:
+      radial-gradient(70mm 30mm at 100% 0%, rgba(234,165,60,.28), transparent 70%),
+      linear-gradient(160deg, var(--pine) 0%, var(--pine-2) 100%);
+    display: grid; grid-template-columns: 1fr auto; gap: 4mm; align-items: center;
+  }
+  .join h4 { font-family: "Fraunces", serif; font-weight: 800; font-size: 13pt; line-height: 1.1; margin-top: .8mm; }
+  .join p { color: #d5e0d1; margin-top: 1mm; }
+  .join ul { list-style: none; display: flex; gap: 1.6mm; }
+  .join li {
+    background: rgba(246,241,230,.08); border: 1px solid rgba(246,241,230,.2);
+    border-radius: 2mm; padding: 1.6mm 2.6mm; font-weight: 700; white-space: nowrap; font-size: 8.4pt;
+  }
+  .join li em { display: block; font-style: normal; font-size: 6pt; letter-spacing: .12em; text-transform: uppercase; color: var(--amber); font-weight: 700; }
+</style>
+</head>
+<body>
+
+<!-- ======================= SEITE 1 ======================= -->
+<section class="page p1">
+  <header class="hero">
+    <div class="kicker">Seminar 39.2 &nbsp;·&nbsp; Frau Reindl</div>
+    <h1>Ausbildungstage<em>in Fischbachau</em></h1>
+    <p class="lede">Zwei Tage Berge, Teamgeist, gutes Essen – und ein bisschen Halligalli.</p>
+
+    <div class="datebadge">
+      <div class="row"><span class="dow">Mi</span><span class="d">28.</span><span class="m">Oktober</span></div>
+      <div class="row"><span class="dow">Do</span><span class="d">29.</span><span class="m">Oktober</span></div>
+      <div class="yr">2026 &nbsp;·&nbsp; 1 Übernachtung</div>
+    </div>
+
+    <svg class="mountains" viewBox="0 0 840 100" preserveAspectRatio="none" aria-hidden="true">
+      <circle cx="700" cy="40" r="11" fill="#eaa53c" opacity=".85"/>
+      <path d="M0 80 L90 66 L160 74 L250 58 L320 70 L400 56 L470 66 L540 30 L600 54 L660 22 L720 50 L780 30 L840 46 V100 H0Z" fill="#2c5440"/>
+      <path d="M540 30 L531 38 L537 37 L541 41 L546 37 L551 38Z M660 22 L649 32 L656 30 L661 35 L667 30 L673 31Z M780 30 L771 38 L777 37 L781 41 L786 37 L791 39Z" fill="#f6f1e6" opacity=".9"/>
+      <path d="M0 90 L100 78 L190 86 L280 74 L370 84 L460 72 L560 62 L640 76 L720 60 L840 72 V100 H0Z" fill="#3f6d52"/>
+      <g fill="#1d3a2c">
+        <path d="M60 92 l5 -13 l5 13Z"/><path d="M71 93 l4 -10 l4 10Z"/>
+        <path d="M330 90 l5 -12 l5 12Z"/><path d="M341 91 l4 -9 l4 9Z"/>
+        <path d="M610 86 l5 -14 l5 14Z"/><path d="M621 88 l4 -10 l4 10Z"/><path d="M800 84 l5 -12 l5 12Z"/>
+      </g>
+      <path d="M0 97 Q120 88 240 94 T480 93 T720 92 T840 90 V100 H0Z" fill="#f6f1e6"/>
+    </svg>
+  </header>
+
+  <div class="content">
+    <div class="facts">
+      <div class="fact"><div class="lbl">Treffpunkt</div><div class="val">An der Schule</div><div class="sub">direkt nach dem Unterricht</div></div>
+      <div class="fact"><div class="lbl">Abfahrt</div><div class="val">ca. 14:00 Uhr</div><div class="sub">Mittwoch, 28.10.</div></div>
+      <div class="fact"><div class="lbl">Ziel</div><div class="val">Fischbachau</div><div class="sub">Leitzachtal · Lkr. Miesbach</div></div>
+      <div class="fact"><div class="lbl">Ende</div><div class="val">ca. 14:00 Uhr</div><div class="sub">Do am Schliersee, Heimweg individuell</div></div>
+    </div>
+
+    <div class="sec"><span class="num">1</span><h2>Fahrgemeinschaften</h2><span class="hint"><b>Elena</b> fährt bei Frau Reindl oder Felix mit – wird noch geklärt</span></div>
+    <div class="cars">
+      <div class="car">
+        <div class="lbl"><svg viewBox="0 0 24 24" fill="none" stroke="#3f6d52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M3 13l2-5a2 2 0 0 1 2-1.4h10a2 2 0 0 1 2 1.4l2 5v4H3z"/><circle cx="7.5" cy="17" r="1.6"/><circle cx="16.5" cy="17" r="1.6"/></svg>Am Steuer</div>
+        <div class="driver">Frau Reindl</div>
+        <ul><li class="chip">Hatice</li><li class="chip">Selma</li><li class="chip">Lisa</li><li class="chip open">Elena?</li></ul>
+      </div>
+      <div class="car">
+        <div class="lbl"><svg viewBox="0 0 24 24" fill="none" stroke="#3f6d52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M3 13l2-5a2 2 0 0 1 2-1.4h10a2 2 0 0 1 2 1.4l2 5v4H3z"/><circle cx="7.5" cy="17" r="1.6"/><circle cx="16.5" cy="17" r="1.6"/></svg>Am Steuer</div>
+        <div class="driver">Katrin Moritz</div>
+        <ul><li class="chip">Patrick Hoffmann</li><li class="chip">Pauline Swarovski</li><li class="chip">Fabio Müller</li></ul>
+      </div>
+      <div class="car">
+        <div class="lbl"><svg viewBox="0 0 24 24" fill="none" stroke="#3f6d52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M3 13l2-5a2 2 0 0 1 2-1.4h10a2 2 0 0 1 2 1.4l2 5v4H3z"/><circle cx="7.5" cy="17" r="1.6"/><circle cx="16.5" cy="17" r="1.6"/></svg>Am Steuer</div>
+        <div class="driver">Felix Müller</div>
+        <ul><li class="chip">Jonas</li><li class="chip">Livia</li><li class="chip">Antonio</li><li class="chip open">Elena?</li></ul>
+      </div>
+    </div>
+
+    <div class="sec"><span class="num">2</span><h2>Tag 1 · Mittwoch, 28. Oktober</h2><span class="hint">Anreise &amp; Abendprogramm</span></div>
+    <ol class="tl">
+      <li class="ev drive">
+        <div class="t">ca. 14:00</div><div class="dot"></div>
+        <div class="b"><div class="main"><h3>Abfahrt an der Schule <span class="tag">Fahrt</span></h3><p>Treffpunkt direkt nach der Schule, dann ab in die drei Autos.</p></div></div>
+      </li>
+      <li class="ev food">
+        <div class="t">15:00<small>bis 15:30</small></div><div class="dot"></div>
+        <div class="b"><div class="main"><h3>Kaffee &amp; Kuchen im Café Winklstüberl <span class="tag">Stopp</span></h3><p>Ankunft 15:00–15:30 Uhr, ca. eine Stunde Pause · Leitzachtalstraße 68, Fischbachau</p></div></div>
+      </li>
+      <li class="ev drive">
+        <div class="t">16:30</div><div class="dot"></div>
+        <div class="b"><div class="main"><h3>Weiterfahrt zur Unterkunft <span class="tag">Fahrt</span></h3><p>Ankommen in Fischbachau, Gepäck ausladen.</p></div></div>
+      </li>
+      <li class="ev prog">
+        <div class="t">18:00<small>bis 19:00</small></div><div class="dot"></div>
+        <div class="b"><div class="main"><h3>Erlebnispädagogik <span class="tag">Programm</span><span class="tag ghost">Noch Plätze im Team frei</span></h3><p>Im Garten der Unterkunft – oder, falls wir noch nicht rein dürfen, auf dem öffentlichen Platz draußen.</p></div></div>
+      </li>
+      <li class="ev food">
+        <div class="t">18:30<small>bis 20:00</small></div><div class="dot"></div>
+        <div class="b"><div class="main"><h3>Gemeinsam kochen &amp; herrichten <span class="tag">Abendessen</span></h3><p>Nudeln mit Soße, dazu Salat · Nachspeise noch offen</p></div>
+          <div class="who"><span class="lbl">Kochteam</span><span class="chip">Elena</span><span class="chip">Selma</span><span class="chip">Hatice</span></div></div>
+      </li>
+      <li class="ev prog">
+        <div class="t">20:00<small>bis 21:00</small></div><div class="dot"></div>
+        <div class="b"><div class="main"><h3>Kunstspaß <span class="tag">Programm</span></h3><p>Kreativ werden – mit Elena &amp; Hatice.</p></div>
+          <div class="who"><span class="lbl">Mit</span><span class="chip">Elena</span><span class="chip">Hatice</span></div></div>
+      </li>
+      <li class="ev eve">
+        <div class="t">ab 21:00</div><div class="dot"></div>
+        <div class="b"><div class="main"><h3>Das legendäre Pub-Quiz <span class="tag">Abend</span></h3><p>Teams bilden, Köpfe rauchen lassen.</p></div>
+          <div class="who"><span class="lbl">Quizmaster</span><span class="chip">Fabio Müller</span><span class="chip">Katrin Moritz</span></div></div>
+      </li>
+      <li class="ev end">
+        <div class="t">22:00</div><div class="dot"></div>
+        <div class="b"><div class="main"><h3>Offizielles Ende <span class="tag">Feierabend</span></h3><p>Wer mag, kann ab ins Bett – alle anderen sind herzlich eingeladen zur …</p></div></div>
+      </li>
+      <li class="ev party">
+        <div class="t">danach<small>Open End</small></div><div class="dot"></div>
+        <div class="b"><div class="main"><h3>Halligalli-Party <span class="tag">Open End</span></h3>
+          <p>Powered by <b>Patrick Hoffmann</b> &amp; <b>Felix Müller</b> – with a legendary Spotify playlist. So lange, wie ihr Bock habt!</p></div>
+          <div class="eq"><i style="height:35%"></i><i style="height:80%"></i><i style="height:55%"></i><i style="height:100%"></i><i style="height:45%"></i><i style="height:70%"></i><i style="height:30%"></i></div></div>
+      </li>
+    </ol>
+  </div>
+
+  <div class="foot"><span><b>Ausbildungstage Fischbachau</b> &nbsp;·&nbsp; Seminar 39.2 &nbsp;·&nbsp; 28.–29.10.2026</span><span>Seite 1 / 2</span></div>
+</section>
+
+<!-- ======================= SEITE 2 ======================= -->
+<section class="page">
+  <header class="band">
+    <div class="kicker">Tag 2 &nbsp;·&nbsp; Donnerstag, 29. Oktober</div>
+    <h2>Waffeln, Berge &amp; <em>ab nach Hause</em></h2>
+    <div class="side"><b>Schliersbergalm</b>1.061 m · über dem Schliersee</div>
+    <svg viewBox="0 0 840 40" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 30 L90 22 L170 28 L260 16 L340 26 L430 18 L520 28 L600 10 L680 24 L760 14 L840 22 V40 H0Z" fill="#3f6d52"/>
+      <path d="M0 36 Q140 30 280 34 T560 33 T840 31 V40 H0Z" fill="#f6f1e6"/>
+    </svg>
+  </header>
+
+  <div class="content">
+    <div class="sec" style="margin-top:4mm"><span class="num">3</span><h2>Ablauf Donnerstag</h2><span class="hint">Frühstück, Check-out &amp; Wanderung</span></div>
+    <ol class="tl">
+      <li class="ev food">
+        <div class="t">08:00</div><div class="dot"></div>
+        <div class="b"><div class="main"><h3>Gemeinsames Frühstück <span class="tag">Frühstück</span></h3><p>Foodsharing-Buffet + Livias richtig leckere Waffeln für alle.</p></div>
+          <div class="who"><span class="lbl">Team</span><span class="chip">Lisa</span><span class="chip">Livia</span><span class="chip">Felix</span><span class="chip open">+ du?</span></div></div>
+      </li>
+      <li class="ev end">
+        <div class="t">09:30<small>bis 10:00</small></div><div class="dot"></div>
+        <div class="b"><div class="main"><h3>Zusammenpacken &amp; Check-out <span class="tag">Abreise</span></h3><p>Zimmer räumen, Küche aufräumen, Autos beladen.</p></div></div>
+      </li>
+      <li class="ev drive">
+        <div class="t">danach</div><div class="dot"></div>
+        <div class="b"><div class="main"><h3>Gemeinsame Fahrt an den Schliersee <span class="tag">Fahrt</span></h3><p>In denselben Fahrgemeinschaften wie bei der Anreise.</p></div></div>
+      </li>
+      <li class="ev prog">
+        <div class="t">Vormittag</div><div class="dot"></div>
+        <div class="b"><div class="main"><h3>Wanderung hinauf zur Schliersbergalm <span class="tag">Wandern</span><span class="tag ghost">Mitplanen erwünscht</span></h3><p>Ca. 1¼ Std. Aufstieg, rund 280 Hm · oben einkehren: Essen &amp; Trinken kauft jede:r selbst.</p></div></div>
+      </li>
+      <li class="ev prog">
+        <div class="t">Mittag</div><div class="dot"></div>
+        <div class="b"><div class="main"><h3>Gemeinsamer Abstieg <span class="tag">Wandern</span></h3><p>Zurück ins Tal, ca. 45–60 Minuten.</p></div></div>
+      </li>
+      <li class="ev end">
+        <div class="t">ca. 14:00</div><div class="dot"></div>
+        <div class="b"><div class="main"><h3>Offizielles Ende – unten am Schliersee <span class="tag">Schluss</span></h3><p>Danke für zwei geniale Tage! Jede:r fährt individuell nach Hause.</p></div></div>
+      </li>
+    </ol>
+
+    <div class="sec"><span class="num">4</span><h2>Essen &amp; Getränke</h2><span class="hint">So machen wir’s dieses Jahr</span></div>
+    <div class="meals">
+      <div class="meal">
+        <header><div class="ico">🍝</div><div><h4>Abendessen</h4><div class="who-line">Kochteam kauft ein</div></div></header>
+        <p><b>Elena, Selma &amp; Hatice</b> kaufen alle Zutaten und kochen Nudeln mit Soße + Salat.</p>
+      </div>
+      <div class="meal">
+        <header><div class="ico">🧇</div><div><h4>Frühstück = Foodsharing</h4><div class="who-line">Alle bringen was mit</div></div></header>
+        <p><b>Jede:r bringt ein bisschen was</b> mit, alles kommt aufs gemeinsame Buffet. Waffeln gibt’s sowieso.</p>
+      </div>
+      <div class="meal">
+        <header><div class="ico">🥤</div><div><h4>Getränke &amp; Snacks</h4><div class="who-line">Selbst mitbringen</div></div></header>
+        <p>Kein Sammeleinkauf: <b>Nimm mit, worauf du Bock hast</b> – gern ein, zwei Sachen mehr zum Teilen.</p>
+      </div>
+    </div>
+
+    <div class="sec"><span class="num">5</span><h2>Packliste</h2><span class="hint"><b>Orange</b> = unbedingt einpacken</span></div>
+    <div class="pack">
+      <div>
+        <h5>Wandern &amp; Wetter</h5>
+        <ul>
+          <li class="must"><span class="box"></span><span>Feste Wanderschuhe</span></li>
+          <li class="must"><span class="box"></span><span>Regenkleidung<small>Regenjacke, ggf. Regenhose</small></span></li>
+          <li class="must"><span class="box"></span><span>Angemessene Kleidung<small>Zwiebellook – am Berg wird’s frisch</small></span></li>
+          <li><span class="box"></span><span>Mütze &amp; Handschuhe</span></li>
+          <li><span class="box"></span><span>Kleiner Rucksack &amp; Trinkflasche</span></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Übernachtung</h5>
+        <ul>
+          <li><span class="box"></span><span>Schlafsachen &amp; Hausschuhe</span></li>
+          <li><span class="box"></span><span>Kulturbeutel &amp; Handtuch</span></li>
+          <li><span class="box"></span><span>Ggf. Bettwäsche / Schlafsack</span></li>
+          <li><span class="box"></span><span>Persönliche Medikamente</span></li>
+          <li><span class="box"></span><span>Handy, Ladekabel, Powerbank</span></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Essen &amp; Trinken</h5>
+        <ul>
+          <li class="must"><span class="box"></span><span>Eigene Getränke &amp; Snacks<small>+ ein, zwei Extras zum Teilen</small></span></li>
+          <li class="must"><span class="box"></span><span>Etwas fürs Frühstücks-Buffet</span></li>
+        </ul>
+        <h5>Sonstiges</h5>
+        <ul>
+          <li><span class="box"></span><span>Bargeld für Café &amp; Alm</span></li>
+          <li><span class="box"></span><span>Gute Laune &amp; Party-Outfit</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sec"><span class="num">6</span><h2>Wer macht was?</h2><span class="hint">Alle Teams auf einen Blick</span></div>
+    <div class="crew">
+      <div><div class="r">Kochteam</div><div class="n">Elena, Selma, Hatice</div></div>
+      <div><div class="r">Kunstspaß</div><div class="n">Elena, Hatice</div></div>
+      <div><div class="r">Pub-Quiz</div><div class="n">Fabio Müller, Katrin Moritz</div></div>
+      <div><div class="r">Party &amp; Playlist</div><div class="n">Patrick Hoffmann, Felix Müller</div></div>
+      <div><div class="r">Frühstück</div><div class="n">Lisa, Livia (Waffeln), Felix</div></div>
+    </div>
+
+    <aside class="join">
+      <div>
+        <div class="kicker">Mitmachen</div>
+        <h4>Du willst noch mit anpacken?</h4>
+        <p>Hier ist noch Platz – einfach kurz Bescheid geben. Das wird eine richtig coole Runde!</p>
+      </div>
+      <ul>
+        <li><em>Plätze frei</em>Erlebnispädagogik</li>
+        <li><em>Gern mehr</em>Frühstücksteam</li>
+        <li><em>Gern mehr</em>Wanderung</li>
+      </ul>
+    </aside>
+  </div>
+
+  <div class="foot"><span><b>Ausbildungstage Fischbachau</b> &nbsp;·&nbsp; Seminar 39.2 &nbsp;·&nbsp; 28.–29.10.2026</span><span>Seite 2 / 2</span></div>
+</section>
+
+</body>
+</html>
