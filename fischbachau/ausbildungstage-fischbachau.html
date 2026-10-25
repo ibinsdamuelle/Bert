@@ -58,6 +58,7 @@
   .hero svg.mountains { position: absolute; left: 0; bottom: -1px; width: 100%; height: 29mm; }
   .p1 .ev + .ev { margin-top: 3.2mm; }
   .p1 .sec { margin: 6mm 0 3mm; }
+  .p2 .sec { margin: 4.2mm 0 2.4mm; }
   .kicker {
     font-size: 7.4pt; letter-spacing: .22em; text-transform: uppercase;
     color: var(--amber); font-weight: 600;
@@ -197,7 +198,7 @@
 
   /* ---------- Band (Seite 2) ---------- */
   .band {
-    position: relative; height: 31mm; color: var(--cream);
+    position: relative; height: 28.5mm; color: var(--cream);
     background:
       radial-gradient(90mm 40mm at 88% 0%, rgba(234,165,60,.2), transparent 70%),
       linear-gradient(180deg, #17301f 0%, var(--pine) 60%, var(--pine-2) 100%);
@@ -242,14 +243,14 @@
   .pack li small { display: block; color: var(--muted); font-size: 7pt; font-weight: 400; }
 
   /* ---------- Crew ---------- */
-  .crew { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2.2mm; }
-  .crew > div { background: var(--paper); border: 1px solid var(--line); border-radius: 2.4mm; padding: 2mm 2.4mm; }
+  .crew { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2mm; }
+  .crew > div { background: var(--paper); border: 1px solid var(--line); border-radius: 2.4mm; padding: 1.7mm 2.4mm; }
   .crew .r { font-size: 6.1pt; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
   .crew .n { font-weight: 700; color: var(--pine); font-size: 8pt; margin-top: .4mm; line-height: 1.25; }
 
   /* ---------- Mitmachen ---------- */
   .join {
-    margin-top: 4mm; border-radius: 3mm; color: var(--cream); padding: 3.6mm 4.4mm;
+    margin-top: 3mm; border-radius: 3mm; color: var(--cream); padding: 3mm 4.4mm;
     background:
       radial-gradient(70mm 30mm at 100% 0%, rgba(234,165,60,.28), transparent 70%),
       linear-gradient(160deg, var(--pine) 0%, var(--pine-2) 100%);
@@ -311,12 +312,12 @@
       </div>
       <div class="car">
         <div class="lbl"><svg viewBox="0 0 24 24" fill="none" stroke="#3f6d52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M3 13l2-5a2 2 0 0 1 2-1.4h10a2 2 0 0 1 2 1.4l2 5v4H3z"/><circle cx="7.5" cy="17" r="1.6"/><circle cx="16.5" cy="17" r="1.6"/></svg>Am Steuer</div>
-        <div class="driver">Katrin Moritz</div>
-        <ul><li class="chip">Patrick Hoffmann</li><li class="chip">Pauline Swarovski</li><li class="chip">Fabio Müller</li></ul>
+        <div class="driver">Katrin</div>
+        <ul><li class="chip">Patrick</li><li class="chip">Pauline</li><li class="chip">Fabio</li></ul>
       </div>
       <div class="car">
         <div class="lbl"><svg viewBox="0 0 24 24" fill="none" stroke="#3f6d52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M3 13l2-5a2 2 0 0 1 2-1.4h10a2 2 0 0 1 2 1.4l2 5v4H3z"/><circle cx="7.5" cy="17" r="1.6"/><circle cx="16.5" cy="17" r="1.6"/></svg>Am Steuer</div>
-        <div class="driver">Felix Müller</div>
+        <div class="driver">Felix</div>
         <ul><li class="chip">Jonas</li><li class="chip">Livia</li><li class="chip">Antonio</li><li class="chip open">Elena?</li></ul>
       </div>
     </div>
@@ -333,7 +334,8 @@
       </li>
       <li class="ev prog">
         <div class="t">16:30<small>bis ca. 18:00</small></div><div class="dot"></div>
-        <div class="b"><div class="main"><h3>Erlebnispädagogik <span class="tag">Programm</span><span class="tag ghost">Noch Plätze im Team frei</span></h3><p>Direkt im Anschluss: im Garten der Unterkunft – oder, falls wir noch nicht rein dürfen, auf dem öffentlichen Platz draußen.</p></div></div>
+        <div class="b"><div class="main"><h3>Erlebnispädagogik <span class="tag">Programm</span></h3><p>Im Garten der Unterkunft – oder, falls wir noch nicht rein dürfen, auf dem öffentlichen Platz draußen.</p></div>
+          <div class="who"><span class="lbl">Team</span><span class="chip">Patrick</span><span class="chip">Fabio</span><span class="chip">Felix</span></div></div>
       </li>
       <li class="ev food">
         <div class="t">18:30<small>bis 20:00</small></div><div class="dot"></div>
@@ -348,7 +350,7 @@
       <li class="ev eve">
         <div class="t">ab 21:00</div><div class="dot"></div>
         <div class="b"><div class="main"><h3>Das legendäre Pub-Quiz <span class="tag">Abend</span></h3><p>Teams bilden, Köpfe rauchen lassen.</p></div>
-          <div class="who"><span class="lbl">Quizmaster</span><span class="chip">Fabio Müller</span><span class="chip">Katrin Moritz</span></div></div>
+          <div class="who"><span class="lbl">Quizmaster</span><span class="chip">Fabio</span><span class="chip">Katrin</span></div></div>
       </li>
       <li class="ev end">
         <div class="t">22:00</div><div class="dot"></div>
@@ -357,7 +359,7 @@
       <li class="ev party">
         <div class="t">danach<small>Open End</small></div><div class="dot"></div>
         <div class="b"><div class="main"><h3>Halligalli-Party <span class="tag">Open End</span></h3>
-          <p>Powered by <b>Patrick Hoffmann</b> &amp; <b>Felix Müller</b> – with a legendary Spotify playlist. So lange, wie ihr Bock habt!</p></div>
+          <p>Powered by <b>Patrick</b> &amp; <b>Felix</b> – with a legendary Spotify playlist. So lange, wie ihr Bock habt!</p></div>
           <div class="eq"><i style="height:35%"></i><i style="height:80%"></i><i style="height:55%"></i><i style="height:100%"></i><i style="height:45%"></i><i style="height:70%"></i><i style="height:30%"></i></div></div>
       </li>
     </ol>
@@ -367,7 +369,7 @@
 </section>
 
 <!-- ======================= SEITE 2 ======================= -->
-<section class="page">
+<section class="page p2">
   <header class="band">
     <div class="kicker">Tag 2 &nbsp;·&nbsp; Donnerstag, 29. Oktober</div>
     <h2>Waffeln, Berge &amp; <em>ab nach Hause</em></h2>
@@ -396,7 +398,8 @@
       </li>
       <li class="ev prog">
         <div class="t">Vormittag</div><div class="dot"></div>
-        <div class="b"><div class="main"><h3>Wanderung hinauf zur Schliersbergalm <span class="tag">Wandern</span><span class="tag ghost">Mitplanen erwünscht</span></h3><p>Ca. 1¼ Std. Aufstieg, rund 280 Hm · oben einkehren: Essen &amp; Trinken kauft jede:r selbst.</p></div></div>
+        <div class="b"><div class="main"><h3>Wanderung hinauf zur Schliersbergalm <span class="tag">Wandern</span></h3><p>Ca. 1¼ Std. Aufstieg, rund 280 Hm · oben Einkehr auf eigene Kosten</p></div>
+          <div class="who"><span class="lbl">Guides</span><span class="chip">Patrick</span><span class="chip">Fabio</span><span class="chip">Felix</span></div></div>
       </li>
       <li class="ev prog">
         <div class="t">Mittag</div><div class="dot"></div>
@@ -462,21 +465,23 @@
 
     <div class="sec"><span class="num">6</span><h2>Wer macht was?</h2><span class="hint">Alle Teams auf einen Blick</span></div>
     <div class="crew">
+      <div><div class="r">Erlebnispädagogik</div><div class="n">Patrick, Fabio, Felix</div></div>
       <div><div class="r">Kochteam</div><div class="n">Elena, Selma, Hatice</div></div>
       <div><div class="r">Kunstspaß</div><div class="n">Elena, Hatice</div></div>
-      <div><div class="r">Pub-Quiz</div><div class="n">Fabio Müller, Katrin Moritz</div></div>
-      <div><div class="r">Party &amp; Playlist</div><div class="n">Patrick Hoffmann, Felix Müller</div></div>
+      <div><div class="r">Pub-Quiz</div><div class="n">Fabio, Katrin</div></div>
+      <div><div class="r">Party &amp; Playlist</div><div class="n">Patrick, Felix</div></div>
       <div><div class="r">Frühstück</div><div class="n">Lisa, Livia (Waffeln), Felix</div></div>
+      <div><div class="r">Wanderung · Guides</div><div class="n">Patrick, Fabio, Felix</div></div>
+      <div><div class="r">Am Steuer</div><div class="n">Frau Reindl, Katrin, Felix</div></div>
     </div>
 
     <aside class="join">
       <div>
         <div class="kicker">Mitmachen</div>
         <h4>Du willst noch mit anpacken?</h4>
-        <p>Hier ist noch Platz – einfach kurz Bescheid geben. Das wird eine richtig coole Runde!</p>
+        <p>Einfach kurz Bescheid geben – das wird eine richtig coole Runde!</p>
       </div>
       <ul>
-        <li><em>Plätze frei</em>Erlebnispädagogik</li>
         <li><em>Gern mehr</em>Frühstücksteam</li>
         <li><em>Gern mehr</em>Wanderung</li>
       </ul>
