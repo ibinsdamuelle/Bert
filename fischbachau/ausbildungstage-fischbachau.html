@@ -20,6 +20,7 @@
     --muted: #5b6a61;
     --line: #e3dccb;
     --sky: #4d7489;
+    --red: #c62828;
   }
 
   @page { size: A4; margin: 0; }
@@ -56,9 +57,25 @@
     padding: 9mm 14mm 0;
   }
   .hero svg.mountains { position: absolute; left: 0; bottom: -1px; width: 100%; height: 29mm; }
-  .p1 .ev + .ev { margin-top: 3.2mm; }
-  .p1 .sec { margin: 6mm 0 3mm; }
-  .p2 .sec { margin: 4.2mm 0 2.4mm; }
+  .p1 .ev + .ev { margin-top: 2.4mm; }
+
+  /* ---------- Roter Hinweis ---------- */
+  .alert {
+    margin-top: 3.2mm; border-radius: 3mm; padding: 1.9mm 4.2mm;
+    background: linear-gradient(120deg, #b71c1c 0%, var(--red) 60%, #e0442f 100%); color: #fff;
+    display: flex; align-items: center; gap: 3.4mm;
+    box-shadow: 0 1.2mm 3.5mm rgba(198,40,40,.25);
+  }
+  .alert .ico {
+    flex: none; width: 8mm; height: 8mm; border-radius: 50%; background: rgba(255,255,255,.18);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .alert .ico svg { width: 5mm; height: 5mm; }
+  .alert .lbl { color: #ffd9d4; font-weight: 700; }
+  .alert b { display: block; font-family: "Fraunces", serif; font-weight: 800; font-size: 12pt; line-height: 1.15; }
+  .alert .bang { margin-left: auto; font-family: "Fraunces", serif; font-weight: 800; font-size: 19pt; line-height: 1; opacity: .9; }
+  .p1 .sec { margin: 5.4mm 0 2.8mm; }
+  .p2 .sec { margin: 3.9mm 0 2.3mm; }
   .kicker {
     font-size: 7.4pt; letter-spacing: .22em; text-transform: uppercase;
     color: var(--amber); font-weight: 600;
@@ -202,7 +219,7 @@
 
   /* ---------- Band (Seite 2) ---------- */
   .band {
-    position: relative; height: 28.5mm; color: var(--cream);
+    position: relative; height: 27.5mm; color: var(--cream);
     background:
       radial-gradient(90mm 40mm at 88% 0%, rgba(234,165,60,.2), transparent 70%),
       linear-gradient(180deg, #17301f 0%, var(--pine) 60%, var(--pine-2) 100%);
@@ -244,6 +261,8 @@
   }
   .pack li.must .box { border-color: var(--ember); background: #fbe9dd; }
   .pack li.must > span:last-child { font-weight: 700; }
+  .pack li.red .box { border-color: var(--red); background: #fde3e1; }
+  .pack li.red > span:last-child { font-weight: 800; color: var(--red); }
   .pack li small { display: block; color: var(--muted); font-size: 7pt; font-weight: 400; }
 
   /* ---------- Crew ---------- */
@@ -322,6 +341,12 @@
           <div class="fact"><div class="val">danach</div><div class="sub">Heimfahrt, jede:r individuell</div></div>
         </div>
       </div>
+    </div>
+
+    <div class="alert">
+      <div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 3 3 6l2.2 4.4L7 9.6V21h10V9.6l1.8.8L21 6l-5.5-3c-.6 1.6-1.9 2.6-3.5 2.6S9.1 4.6 8.5 3z" fill="#fff"/></svg></div>
+      <div><div class="lbl">Ganz, ganz wichtig</div><b>Seminar-T-Shirt nicht vergessen!</b></div>
+      <span class="bang">!</span>
     </div>
 
     <div class="sec"><span class="num">1</span><h2>Fahrgemeinschaften</h2><span class="hint"><b>Elena</b> fährt bei Frau Reindl oder Felix mit – wird noch geklärt</span></div>
@@ -477,6 +502,7 @@
         </ul>
         <h5>Sonstiges</h5>
         <ul>
+          <li class="red"><span class="box"></span><span>Seminar-T-Shirt!</span></li>
           <li><span class="box"></span><span>Bargeld für Café &amp; Alm</span></li>
           <li><span class="box"></span><span>Gute Laune &amp; Party-Outfit</span></li>
         </ul>
