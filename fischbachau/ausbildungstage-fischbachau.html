@@ -87,18 +87,28 @@
 
   /* ---------- Facts strip ---------- */
   .facts {
-    display: grid; grid-template-columns: repeat(4, 1fr);
+    display: grid; grid-template-columns: 1fr 25mm 1fr;
     background: var(--paper);
+    overflow: hidden;
     border: 1px solid var(--line);
     border-radius: 3mm;
     margin-top: -2mm;
     position: relative; z-index: 2;
     box-shadow: 0 1.2mm 3.5mm rgba(29,58,44,.08);
   }
-  .fact { padding: 2.3mm 3.4mm 2.5mm; }
-  .fact + .fact { border-left: 1px solid var(--line); }
+  .day { padding: 2.6mm 3.6mm 2.8mm; }
+  .day .lbl { color: var(--ember); font-weight: 700; }
+  .day .dname { font-family: "Fraunces", serif; font-weight: 700; font-size: 11.5pt; color: var(--pine); line-height: 1.15; }
+  .day .items { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; margin-top: 1.8mm; padding-top: 1.8mm; border-top: 1px solid var(--line); }
+  .night {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+    background: linear-gradient(180deg, var(--pine) 0%, var(--pine-2) 100%); color: var(--cream);
+  }
+  .night svg { width: 6mm; height: 6mm; }
+  .night b { font-family: "Fraunces", serif; font-size: 10pt; margin-top: 1mm; }
+  .night span { font-size: 6.8pt; color: #cfdacb; margin-top: .3mm; }
   .lbl { font-size: 6.4pt; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
-  .fact .val { margin-top: .4mm; font-weight: 700; font-size: 9.4pt; color: var(--pine); line-height: 1.2; }
+  .fact .val { font-weight: 700; font-size: 9.4pt; color: var(--pine); line-height: 1.2; }
   .fact .sub { font-size: 7.3pt; color: var(--muted); line-height: 1.3; }
 
   /* ---------- Section headings ---------- */
@@ -270,9 +280,9 @@
     <p class="lede">Zwei Tage Berge, Teamgeist, gutes Essen – und ein bisschen Halligalli.</p>
 
     <div class="datebadge">
-      <div class="row"><span class="dow">Mi</span><span class="d">28.</span><span class="m">Oktober</span></div>
-      <div class="row"><span class="dow">Do</span><span class="d">29.</span><span class="m">Oktober</span></div>
-      <div class="yr">2026 &nbsp;·&nbsp; 1 Übernachtung</div>
+      <div class="row"><span class="dow">Mi</span><span class="d">28.</span><span class="m">Hinfahrt</span></div>
+      <div class="row"><span class="dow">Do</span><span class="d">29.</span><span class="m">Rückfahrt</span></div>
+      <div class="yr">Oktober 2026</div>
     </div>
 
     <svg class="mountains" viewBox="0 0 840 100" preserveAspectRatio="none" aria-hidden="true">
@@ -291,10 +301,26 @@
 
   <div class="content">
     <div class="facts">
-      <div class="fact"><div class="lbl">Abfahrt</div><div class="val">ca. 14:00 Uhr</div><div class="sub">an der Schule, direkt nach dem Unterricht</div></div>
-      <div class="fact"><div class="lbl">Treffpunkt</div><div class="val">15:30 Uhr</div><div class="sub">Café Winklstüberl, Fischbachau</div></div>
-      <div class="fact"><div class="lbl">Übernachtung</div><div class="val">Fischbachau</div><div class="sub">Leitzachtal · Lkr. Miesbach</div></div>
-      <div class="fact"><div class="lbl">Ende</div><div class="val">ca. 14:00 Uhr</div><div class="sub">Do am Schliersee, Heimweg individuell</div></div>
+      <div class="day">
+        <div class="lbl">Start · Hinfahrt</div>
+        <div class="dname">Mittwoch, 28.10.</div>
+        <div class="items">
+          <div class="fact"><div class="val">ca. 14:00 Uhr</div><div class="sub">Abfahrt an der Schule, direkt nach dem Unterricht</div></div>
+          <div class="fact"><div class="val">15:30 Uhr</div><div class="sub">Treffpunkt Café Winklstüberl, Fischbachau</div></div>
+        </div>
+      </div>
+      <div class="night">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="#eaa53c"/></svg>
+        <b>1 Nacht</b><span>in Fischbachau</span>
+      </div>
+      <div class="day">
+        <div class="lbl">Ende · Rückfahrt</div>
+        <div class="dname">Donnerstag, 29.10.</div>
+        <div class="items">
+          <div class="fact"><div class="val">ca. 14:00 Uhr</div><div class="sub">Offizielles Ende unten am Schliersee</div></div>
+          <div class="fact"><div class="val">danach</div><div class="sub">Heimfahrt, jede:r individuell</div></div>
+        </div>
+      </div>
     </div>
 
     <div class="sec"><span class="num">1</span><h2>Fahrgemeinschaften</h2><span class="hint"><b>Elena</b> fährt bei Frau Reindl oder Felix mit – wird noch geklärt</span></div>
@@ -344,7 +370,7 @@
       <li class="ev eve">
         <div class="t">ab 21:00</div><div class="dot"></div>
         <div class="b"><div class="main"><h3>Das legendäre Pub-Quiz</h3><p>Teams bilden, Köpfe rauchen lassen.</p></div>
-          <div class="who"><span class="lbl">Quizmaster</span><span class="chip">Fabio</span><span class="chip">Katrin</span></div></div>
+          <div class="who"><span class="lbl">Quizmaster</span><span class="chip">Fabio</span><span class="chip">Katrin</span><span class="chip">Pauline</span></div></div>
       </li>
       <li class="ev end">
         <div class="t">22:00</div><div class="dot"></div>
@@ -353,7 +379,7 @@
       <li class="ev party">
         <div class="t">danach<small>Open End</small></div><div class="dot"></div>
         <div class="b"><div class="main"><h3>Halligalli-Party</h3>
-          <p>Powered by <b>Patrick</b> &amp; <b>Felix</b> – with a legendary Spotify playlist. So lange, wie ihr Bock habt!</p></div>
+          <p>Powered by <b>Patrick</b>, <b>Felix</b> &amp; <b>Antonio</b> – with a legendary Spotify playlist.<br>Alle sind herzlich eingeladen, so lange ihr Bock habt!</p></div>
           <div class="eq"><i style="height:35%"></i><i style="height:80%"></i><i style="height:55%"></i><i style="height:100%"></i><i style="height:45%"></i><i style="height:70%"></i><i style="height:30%"></i></div></div>
       </li>
     </ol>
@@ -462,8 +488,8 @@
       <div><div class="r">Erlebnispädagogik</div><div class="n">Patrick, Fabio, Felix</div></div>
       <div><div class="r">Kochteam</div><div class="n">Elena, Selma, Hatice</div></div>
       <div><div class="r">Kunstspaß</div><div class="n">Elena, Hatice</div></div>
-      <div><div class="r">Pub-Quiz</div><div class="n">Fabio, Katrin</div></div>
-      <div><div class="r">Party &amp; Playlist</div><div class="n">Patrick, Felix</div></div>
+      <div><div class="r">Pub-Quiz</div><div class="n">Fabio, Katrin, Pauline</div></div>
+      <div><div class="r">Party &amp; Playlist</div><div class="n">Patrick, Felix, Antonio</div></div>
       <div><div class="r">Frühstück</div><div class="n">Lisa, Livia (Waffeln), Felix</div></div>
       <div><div class="r">Wanderung · Guides</div><div class="n">Patrick, Fabio, Felix</div></div>
       <div><div class="r">Am Steuer</div><div class="n">Frau Reindl, Katrin, Felix</div></div>
