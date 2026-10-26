@@ -249,6 +249,7 @@
   /* ---------- Crew ---------- */
   .crew { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2mm; }
   .crew > div { background: var(--paper); border: 1px solid var(--line); border-radius: 2.4mm; padding: 1.7mm 2.4mm; }
+  .crew > .wide { grid-column: span 2; border-color: #cfdcc2; background: #f1f5ec; }
   .crew .r { font-size: 6.1pt; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
   .crew .n { font-weight: 700; color: var(--pine); font-size: 8pt; margin-top: .4mm; line-height: 1.25; }
 
@@ -349,13 +350,12 @@
         <div class="b"><div class="main"><h3>Abfahrt an der Schule</h3><p>Direkt nach der Schule geht’s los – ab in die drei Autos.</p></div></div>
       </li>
       <li class="ev food">
-        <div class="t">15:30<small>bis 16:30</small></div><div class="dot"></div>
-        <div class="b"><div class="main"><h3>Treffpunkt: Kaffee &amp; Kuchen im Café Winklstüberl</h3><p>Alle treffen sich hier, ca. eine Stunde Pause · Leitzachtalstraße 68, Fischbachau</p></div></div>
+        <div class="t">15:30<small>bis 17:00</small></div><div class="dot"></div>
+        <div class="b"><div class="main"><h3>Treffpunkt: Kaffee &amp; Kuchen im Café Winklstüberl</h3><p>Alle treffen sich hier, gemütlich Kaffee trinken · Leitzachtalstraße 68, Fischbachau</p></div></div>
       </li>
-      <li class="ev prog">
-        <div class="t">16:30<small>bis ca. 18:00</small></div><div class="dot"></div>
-        <div class="b"><div class="main"><h3>Erlebnispädagogik</h3><p>Im Garten der Unterkunft – oder auf dem öffentlichen Platz, falls wir noch nicht rein dürfen.</p></div>
-          <div class="who"><span class="lbl">Team</span><span class="chip">Patrick</span><span class="chip">Fabio</span><span class="chip">Felix</span><span class="chip">Kathrin</span><span class="chip open">+ du?</span></div></div>
+      <li class="ev drive">
+        <div class="t">17:00</div><div class="dot"></div>
+        <div class="b"><div class="main"><h3>Weiterfahrt zur Unterkunft</h3><p>Ankommen in Fischbachau &amp; einrichten.</p></div></div>
       </li>
       <li class="ev food">
         <div class="t">18:30<small>bis 20:00</small></div><div class="dot"></div>
@@ -401,7 +401,7 @@
   </header>
 
   <div class="content">
-    <div class="sec" style="margin-top:4mm"><span class="num">3</span><h2>Ablauf Donnerstag</h2><span class="hint">Frühstück, Check-out &amp; Wanderung</span></div>
+    <div class="sec" style="margin-top:4mm"><span class="num">3</span><h2>Ablauf Donnerstag</h2><span class="hint">Frühstück, Check-out &amp; Erlebnis-Wandertag</span></div>
     <ol class="tl">
       <li class="ev food">
         <div class="t">08:00</div><div class="dot"></div>
@@ -418,12 +418,12 @@
       </li>
       <li class="ev prog">
         <div class="t">Vormittag</div><div class="dot"></div>
-        <div class="b"><div class="main"><h3>Wanderung hinauf zur Schliersbergalm</h3><p>Ca. 1¼ Std. Aufstieg, rund 280 Hm · oben Einkehr auf eigene Kosten</p></div>
-          <div class="who"><span class="lbl">Guides</span><span class="chip">Patrick</span><span class="chip">Fabio</span><span class="chip">Felix</span></div></div>
+        <div class="b"><div class="main"><h3>Erlebnis-Wandertag zur Schliersbergalm</h3><p>Wanderung mit eingebauter Erlebnispädagogik · ca. 1¼ Std. Aufstieg, rund 280 Hm</p></div>
+          <div class="who"><span class="lbl">Team</span><span class="chip">Patrick</span><span class="chip">Fabio</span><span class="chip">Felix</span><span class="chip">Kathrin</span><span class="chip open">+ du?</span></div></div>
       </li>
       <li class="ev prog">
         <div class="t">Mittag</div><div class="dot"></div>
-        <div class="b"><div class="main"><h3>Gemeinsamer Abstieg</h3><p>Zurück ins Tal, ca. 45–60 Minuten.</p></div></div>
+        <div class="b"><div class="main"><h3>Einkehr &amp; gemeinsamer Abstieg</h3><p>Oben einkehren, wer mag (auf eigene Kosten) – dann gemeinsam zurück ins Tal, ca. 45–60 Minuten.</p></div></div>
       </li>
       <li class="ev end">
         <div class="t">ca. 14:00</div><div class="dot"></div>
@@ -485,13 +485,12 @@
 
     <div class="sec"><span class="num">6</span><h2>Wer macht was?</h2><span class="hint">Alle Teams auf einen Blick</span></div>
     <div class="crew">
-      <div><div class="r">Erlebnispädagogik</div><div class="n">Patrick, Fabio, Felix, Kathrin</div></div>
       <div><div class="r">Kochteam</div><div class="n">Elena, Selma, Hatice</div></div>
       <div><div class="r">Kunstspaß</div><div class="n">Elena, Hatice</div></div>
       <div><div class="r">Pub-Quiz</div><div class="n">Fabio, Kathrin, Pauline</div></div>
       <div><div class="r">Party &amp; Playlist</div><div class="n">Patrick, Felix, Antonio</div></div>
       <div><div class="r">Frühstück</div><div class="n">Lisa, Livia, Felix, Jonas</div></div>
-      <div><div class="r">Wanderung · Guides</div><div class="n">Patrick, Fabio, Felix</div></div>
+      <div class="wide"><div class="r">Erlebnis-Wandertag · Wanderung &amp; Erlebnispädagogik</div><div class="n">Patrick, Fabio, Felix, Kathrin</div></div>
       <div><div class="r">Am Steuer</div><div class="n">Frau Reindl, Kathrin, Felix</div></div>
     </div>
 
@@ -502,9 +501,8 @@
         <p>Einfach kurz Bescheid geben – das wird eine richtig coole Runde!</p>
       </div>
       <ul>
-        <li><em>Hilfe gesucht</em>Erlebnispädagogik</li>
+        <li><em>Hilfe gesucht</em>Erlebnis-Wandertag</li>
         <li><em>Gern mehr</em>Frühstücksteam</li>
-        <li><em>Gern mehr</em>Wanderung</li>
       </ul>
     </aside>
   </div>
