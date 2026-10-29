@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Unterrichtsentwurf GPG 6 – Die Entdeckung Amerikas</title>
+<style>
+  @font-face { font-family: "Fraunces"; font-style: normal; font-weight: 100 900; src: url("../fischbachau/fonts/fraunces-latin.woff2") format("woff2"); }
+  @font-face { font-family: "Fraunces"; font-style: italic; font-weight: 100 900; src: url("../fischbachau/fonts/fraunces-italic-latin.woff2") format("woff2"); }
+
+  :root {
+    --ink: #1b2430;
+    --muted: #5a6573;
+    --navy: #16324f;
+    --sea: #1f5f8b;
+    --sea-soft: #e7f0f7;
+    --gold: #c98a1b;
+    --gold-soft: #fbf1dc;
+    --line: #d9dee5;
+    --paper: #ffffff;
+    --bg: #fbfaf7;
+    --board: #2f4a3a;
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); }
+  body {
+    font-family: "Inter", "Liberation Sans", sans-serif; color: var(--ink);
+    font-size: 8.1pt; line-height: 1.38;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .page { position: relative; width: 210mm; height: 297mm; overflow: hidden; background: var(--bg); break-after: page; }
+  .page:last-child { break-after: auto; }
+  .content { padding: 12mm 14mm 0; }
+  .serif { font-family: "Fraunces", Georgia, serif; }
+
+  /* ---------- Kopf ---------- */
+  .head { border-bottom: 2px solid var(--navy); padding-bottom: 3mm; display: flex; align-items: flex-end; gap: 6mm; }
+  .kicker { font-size: 7pt; letter-spacing: .2em; text-transform: uppercase; color: var(--sea); font-weight: 700; }
+  .head h1 { font-family: "Fraunces", serif; font-weight: 800; font-size: 19pt; line-height: 1.05; color: var(--navy); margin-top: 1.2mm; }
+  .head h1 em { font-style: italic; font-weight: 600; color: var(--gold); }
+  .head .q { margin-top: 1.4mm; font-size: 9.4pt; color: var(--muted); }
+  .head .q b { color: var(--ink); }
+  .head .badge { margin-left: auto; text-align: right; flex: none; }
+  .head .badge .big { font-family: "Fraunces", serif; font-weight: 800; font-size: 26pt; color: var(--sea); line-height: 1; }
+  .head .badge .small { font-size: 7pt; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+
+  .meta { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 4mm; border: 1px solid var(--line); border-radius: 2mm; background: var(--paper); }
+  .meta div { padding: 1.8mm 2.6mm; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); min-height: 9mm; }
+  .meta div:nth-child(4n) { border-right: none; }
+  .meta div:nth-last-child(-n+4) { border-bottom: none; }
+  .meta .l { font-size: 6.3pt; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  .meta .v { font-weight: 600; margin-top: .4mm; }
+  .meta .blank { display: block; border-bottom: 1px solid #b9c1cc; height: 4.2mm; }
+  .meta .wide { grid-column: span 2; }
+
+  /* ---------- Abschnitte ---------- */
+  h2.sec { font-family: "Fraunces", serif; font-weight: 700; font-size: 12.5pt; color: var(--navy); margin: 4mm 0 1.8mm; display: flex; align-items: center; gap: 2.4mm; }
+  h2.sec .n { font-family: "Inter", sans-serif; font-size: 7.4pt; font-weight: 800; color: #fff; background: var(--sea); border-radius: 1.2mm; padding: .5mm 1.6mm; }
+  .box { background: var(--paper); border: 1px solid var(--line); border-radius: 2mm; padding: 2.4mm 3.2mm; }
+  .goal { background: var(--sea-soft); border-color: #c9dcea; }
+  .goal .l { font-size: 6.6pt; letter-spacing: .14em; text-transform: uppercase; color: var(--sea); font-weight: 800; }
+  .goal p { margin-top: .6mm; font-weight: 600; }
+  .tz { list-style: none; margin-top: 1.8mm; display: grid; gap: 1mm; }
+  .tz li { display: grid; grid-template-columns: 10mm 1fr; gap: 1.6mm; }
+  .tz .k { font-weight: 800; color: var(--sea); }
+  .op { font-weight: 700; color: var(--gold); }
+  ul.dots { list-style: none; display: grid; gap: 1mm; }
+  ul.dots li { padding-left: 3.6mm; position: relative; }
+  ul.dots li::before { content: ""; position: absolute; left: .4mm; top: 1.6mm; width: 1.5mm; height: 1.5mm; border-radius: 50%; background: var(--sea); }
+  ul.dots b { color: var(--navy); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+  .chips { display: flex; flex-wrap: wrap; gap: 1.4mm; }
+  .chip { background: var(--paper); border: 1px solid var(--line); border-radius: 10mm; padding: .6mm 2.4mm; font-weight: 600; font-size: 7.8pt; }
+
+  /* ---------- Verlaufsplanung ---------- */
+  table.plan { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--paper); border: 1px solid var(--line); border-radius: 2mm; overflow: hidden; font-size: 7.9pt; line-height: 1.34; }
+  .plan th { background: var(--navy); color: #fff; text-align: left; font-size: 6.6pt; letter-spacing: .1em; text-transform: uppercase; padding: 1.8mm 2mm; font-weight: 700; }
+  .plan td { padding: 1.6mm 2mm; vertical-align: top; border-top: 1px solid var(--line); }
+  .plan td + td, .plan th + th { border-left: 1px solid var(--line); }
+  .plan th + th { border-left-color: rgba(255,255,255,.18); }
+  .plan .time { font-family: "Fraunces", serif; font-weight: 700; color: var(--sea); white-space: nowrap; font-size: 8.6pt; }
+  .plan .phase b { display: block; color: var(--navy); font-size: 8.2pt; line-height: 1.25; }
+  .plan .phase span { color: var(--muted); font-size: 7.2pt; }
+  .plan .who { font-size: 6.4pt; font-weight: 800; letter-spacing: .08em; color: var(--sea); }
+  .plan .say { font-style: italic; color: var(--navy); }
+  .plan tr.alt td { background: #f8fafc; }
+  .plan .com { color: var(--muted); font-size: 7.5pt; }
+  .plan .med { font-size: 7.5pt; }
+
+  /* ---------- Tafelbild ---------- */
+  .board {
+    background: var(--board); color: #f3f1e8; border-radius: 3mm; padding: 6mm 7mm 6.4mm;
+    border: 3mm solid #7a5a3a; box-shadow: inset 0 0 12mm rgba(0,0,0,.25);
+    font-family: "Fraunces", serif;
+  }
+  .board h3 { text-align: center; font-size: 15pt; font-weight: 700; letter-spacing: .01em; }
+  .board h3 small { display: block; font-family: "Inter", sans-serif; font-size: 8pt; font-weight: 500; color: #cfd8cf; margin-top: 1mm; }
+  .board .cols3 { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 5mm; margin-top: 5mm; }
+  .board h4 { font-size: 11pt; color: #f2c879; border-bottom: 1px dashed rgba(243,241,232,.4); padding-bottom: 1mm; margin-bottom: 2mm; }
+  .board ul { list-style: none; font-family: "Inter", sans-serif; font-size: 8.4pt; line-height: 1.45; display: grid; gap: 1.4mm; }
+  .board li::before { content: "– "; color: #f2c879; }
+  .board .arrow { color: #f2c879; font-weight: 700; }
+  .board .bottom { margin-top: 5mm; border-top: 1px dashed rgba(243,241,232,.4); padding-top: 3mm; font-family: "Inter", sans-serif; font-size: 8.6pt; text-align: center; }
+  .board .bottom b { color: #f2c879; font-family: "Fraunces", serif; font-size: 10.5pt; }
+
+  /* ---------- Arbeitsblatt ---------- */
+  .ab-head { display: flex; align-items: flex-end; justify-content: space-between; border-bottom: 2px solid var(--navy); padding-bottom: 2.4mm; }
+  .ab-head .fields { font-size: 8pt; color: var(--muted); display: grid; gap: 1.6mm; text-align: right; }
+  .ab-head .fields span { display: inline-block; width: 42mm; border-bottom: 1px solid #9aa4b1; margin-left: 2mm; }
+  .ab-head h1 { font-family: "Fraunces", serif; font-weight: 800; font-size: 19pt; color: var(--navy); line-height: 1.05; }
+  .info { margin-top: 4mm; background: var(--paper); border: 1px solid var(--line); border-left: 1.4mm solid var(--gold); border-radius: 2mm; padding: 3.4mm 4mm; font-size: 9.6pt; line-height: 1.55; }
+  .info p + p { margin-top: 1.8mm; }
+  .task { margin-top: 4.4mm; }
+  .task .t { display: flex; gap: 2.4mm; align-items: baseline; font-size: 9.6pt; }
+  .task .t .nr { flex: none; width: 6mm; height: 6mm; border-radius: 50%; background: var(--sea); color: #fff; font-weight: 800; font-size: 8.4pt; display: inline-flex; align-items: center; justify-content: center; transform: translateY(.8mm); }
+  .task .t b { color: var(--navy); }
+  .task .t .pa { font-size: 6.8pt; font-weight: 800; letter-spacing: .1em; color: var(--sea); border: 1px solid var(--sea); border-radius: 1mm; padding: .2mm 1.4mm; }
+  .lines { margin: 2.4mm 0 0 8.4mm; }
+  .lines i { display: block; height: 8mm; border-bottom: 1px solid #b9c1cc; }
+  .timeline { margin: 4mm 0 0 8.4mm; position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; }
+  .timeline::before { content: ""; position: absolute; left: 0; right: 0; top: 4mm; height: .8mm; background: var(--sea); border-radius: 1mm; }
+  .timeline::after { content: ""; position: absolute; right: -2mm; top: 2.6mm; border-left: 3.6mm solid var(--sea); border-top: 1.8mm solid transparent; border-bottom: 1.8mm solid transparent; }
+  .tbox { position: relative; padding-top: 9mm; font-size: 8.8pt; }
+  .tbox::before { content: ""; position: absolute; left: 50%; top: 2.6mm; width: 3.6mm; height: 3.6mm; margin-left: -1.8mm; border-radius: 50%; background: #fff; border: .8mm solid var(--sea); }
+  .tbox .card { background: var(--paper); border: 1px solid var(--line); border-radius: 2mm; padding: 2.4mm; text-align: center; min-height: 20mm; }
+  .tbox .gap { display: inline-block; min-width: 10mm; border-bottom: 1px solid #9aa4b1; }
+  .tbox .gapw { display: inline-block; min-width: 28mm; border-bottom: 1px solid #9aa4b1; }
+  .tbox .what { display: block; margin-top: 1.4mm; color: var(--muted); }
+  .words { margin-top: 5mm; border: 1px dashed #9fb6c9; border-radius: 2mm; padding: 2.4mm 3.4mm; background: #f5f9fc; font-size: 8.6pt; }
+  .words b { color: var(--sea); font-size: 6.8pt; letter-spacing: .14em; text-transform: uppercase; margin-right: 2mm; }
+  .star { margin-top: 4mm; background: var(--gold-soft); border: 1px solid #ecd3a0; border-radius: 2mm; padding: 2.4mm 3.4mm; font-size: 9pt; }
+  .star b { color: #8a5d0f; }
+
+  .foot {
+    position: absolute; left: 14mm; right: 14mm; bottom: 7mm;
+    display: flex; justify-content: space-between; font-size: 6.8pt; color: var(--muted);
+    border-top: 1px solid var(--line); padding-top: 2mm; letter-spacing: .03em;
+  }
+  .foot b { color: var(--navy); }
+</style>
+</head>
+<body>
+
+<!-- ======================= SEITE 1: Rahmen, Ziele, Analyse ======================= -->
+<section class="page">
+  <div class="content">
+    <div class="head">
+      <div>
+        <div class="kicker">Unterrichtsentwurf · Mittelschule · GPG</div>
+        <h1>1492 – Kolumbus <em>„entdeckt“</em> Amerika</h1>
+        <div class="q">Stundenfrage: <b>Warum segelte Kolumbus nach Westen – und wo kam er wirklich an?</b></div>
+      </div>
+      <div class="badge"><div class="big">6</div><div class="small">Jahrgangsstufe</div></div>
+    </div>
+
+    <div class="meta">
+      <div><div class="l">Lehramtsanwärter:in</div><span class="blank"></span></div>
+      <div><div class="l">Schule</div><span class="blank"></span></div>
+      <div><div class="l">Klasse</div><span class="blank"></span></div>
+      <div><div class="l">Datum / Stunde</div><span class="blank"></span></div>
+      <div><div class="l">Fach</div><div class="v">GPG (Geschichte/Politik/Geographie)</div></div>
+      <div><div class="l">Dauer</div><div class="v">45 Minuten</div></div>
+      <div class="wide"><div class="l">Lehrplanbezug</div><div class="v">LehrplanPLUS Mittelschule Bayern, GPG 6 · Lernbereich: <span style="display:inline-block;width:30mm;border-bottom:1px solid #b9c1cc"></span></div></div>
+    </div>
+
+    <h2 class="sec"><span class="n">1</span>Lernziele</h2>
+    <div class="box goal">
+      <div class="l">Grobziel / Kompetenzerwartung</div>
+      <p>Die Schülerinnen und Schüler beschreiben die erste Reise des Christoph Kolumbus, erklären seine Beweggründe und setzen sich mit dem Begriff „Entdeckung“ aus der Sicht der Menschen in Amerika auseinander.</p>
+      <ul class="tz">
+        <li><span class="k">TZ 1</span><span>Die S <span class="op">nennen</span> Gründe, warum Europäer einen Seeweg nach Indien suchten (Gewürze, Gold, teurer Landweg über viele Zwischenhändler).</span></li>
+        <li><span class="k">TZ 2</span><span>Die S <span class="op">beschreiben</span> mithilfe des Atlas den Verlauf der ersten Reise (Palos – Kanarische Inseln – Guanahani) und ordnen wichtige Daten auf einem Zeitstrahl ein.</span></li>
+        <li><span class="k">TZ 3</span><span>Die S <span class="op">erklären</span> den Irrtum des Kolumbus (er glaubte, in Indien zu sein) und die Herkunft des Namens „Amerika“.</span></li>
+        <li><span class="k">TZ 4</span><span>Die S <span class="op">beurteilen</span> ansatzweise, ob man von einer „Entdeckung“ sprechen kann, indem sie die Perspektive der Taíno einnehmen.</span></li>
+        <li><span class="k">Sozial</span><span>Die S arbeiten in Partnerarbeit zusammen und hören einander im Unterrichtsgespräch zu.</span></li>
+      </ul>
+    </div>
+
+    <h2 class="sec"><span class="n">2</span>Sachanalyse</h2>
+    <div class="box">
+      <ul class="dots">
+        <li><b>Ausgangslage:</b> Gewürze, Seide und Gold aus Asien waren in Europa sehr begehrt. Am langen Landweg verdienten viele Zwischenhändler mit, nach 1453 kontrollierten die Osmanen wichtige Handelswege. Europäer suchten deshalb einen Seeweg nach Indien (Portugal: um Afrika herum, Vasco da Gama 1498).</li>
+        <li><b>Kolumbus</b> (1451 Genua – 1506 Valladolid): Dass die Erde eine Kugel ist, war unter Gelehrten bekannt. Kolumbus unterschätzte aber den Erdumfang und wollte Asien auf dem Westweg erreichen. Das spanische Königspaar Isabella von Kastilien und Ferdinand von Aragón finanzierte die Fahrt.</li>
+        <li><b>Erste Reise:</b> Abfahrt am 3. August 1492 in Palos mit drei Schiffen (Santa María, Pinta, Niña). Nach einem Halt auf den Kanarischen Inseln ab 6. September rund fünf Wochen Fahrt über den Atlantik. Am 12. Oktober 1492 Landung auf einer Insel der Bahamas – von den dort lebenden Taíno „Guanahani“ genannt, von Kolumbus „San Salvador“.</li>
+        <li><b>Irrtum und Name:</b> Kolumbus hielt das Land für Indien und nannte die Menschen „Indios“ (historische Fremdbezeichnung). Bis 1504 unternahm er vier Reisen und glaubte bis zu seinem Tod, Asien erreicht zu haben. Amerigo Vespucci erkannte einen neuen Kontinent; auf einer Weltkarte von Martin Waldseemüller (1507) erscheint erstmals der Name „America“.</li>
+        <li><b>Folgen &amp; Begriff:</b> Eroberung, Ausbeutung und eingeschleppte Krankheiten führten zum Tod eines Großteils der indigenen Bevölkerung; zugleich begann ein Austausch von Pflanzen und Tieren (Kartoffel, Mais, Tomate, Kakao nach Europa; Pferde, Rinder nach Amerika). Amerika war seit Jahrtausenden von Millionen Menschen besiedelt, Wikinger kamen schon um 1000 nach Nordamerika – „Entdeckung“ ist also eine europäische Sicht.</li>
+      </ul>
+    </div>
+
+    <h2 class="sec"><span class="n">3</span>Didaktisch-methodische Überlegungen</h2>
+    <div class="box">
+      <ul class="dots" style="grid-template-columns:1fr 1fr;column-gap:5mm">
+        <li><b>Lebensweltbezug:</b> Gewürze, Pommes, Schokolade – Alltägliches, das es ohne 1492 in Europa so nicht gäbe.</li>
+        <li><b>Anschaulichkeit:</b> Gewürzdose als Einstieg, Lehrererzählung, Globus und Atlas.</li>
+        <li><b>Handlungsorientierung:</b> Atlasarbeit in Partnerarbeit, Zeitstrahl ausfüllen.</li>
+        <li><b>Multiperspektivität:</b> Der Begriff „Entdeckung“ wird aus Sicht der Taíno hinterfragt (Werteerziehung, Respekt vor anderen Kulturen).</li>
+        <li><b>Differenzierung:</b> Wortspeicher, Zusatzaufgabe, Hausaufgabe zur Wahl.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span><b>Unterrichtsentwurf GPG 6</b> · Die Entdeckung Amerikas</span><span>Seite 1 / 4</span></div>
+</section>
+
+<!-- ======================= SEITE 2: Verlaufsplanung ======================= -->
+<section class="page">
+  <div class="content">
+    <div class="head">
+      <div>
+        <div class="kicker">Verlaufsplanung · 45 Minuten</div>
+        <h1 style="font-size:18pt">Geplanter Stundenverlauf</h1>
+      </div>
+      <div class="badge"><div class="small">L = Lehrkraft · S = Schüler:innen</div></div>
+    </div>
+
+    <table class="plan" style="margin-top:4mm">
+      <colgroup><col style="width:11mm"><col style="width:23mm"><col><col style="width:16mm"><col style="width:22mm"><col style="width:38mm"></colgroup>
+      <tr><th>Zeit</th><th>Phase</th><th>Unterrichtsgeschehen</th><th>Sozial&shy;form</th><th>Medien</th><th>Didaktisch-methodischer Kommentar</th></tr>
+      <tr>
+        <td class="time">0–5′</td>
+        <td class="phase"><b>Einstieg</b><span>Motivation</span></td>
+        <td><span class="who">L</span> stellt eine geschlossene Dose in die Mitte, S dürfen riechen und raten (Pfeffer, Zimt, Nelken, Muskat).<br><span class="who">L</span> <span class="say">„Für diese Gewürze haben Menschen vor über 500 Jahren ihr Leben riskiert.“</span><br><span class="who">S</span> äußern sich spontan.</td>
+        <td>Sitzkreis / UG</td>
+        <td class="med">Gewürzdose</td>
+        <td class="com">Sinnlicher, lebensnaher Einstieg weckt Neugier und Fragehaltung.</td>
+      </tr>
+      <tr class="alt">
+        <td class="time">5–8′</td>
+        <td class="phase"><b>Problem&shy;findung</b><span>Zielangabe</span></td>
+        <td><span class="who">L</span> zeigt am Globus Europa und Indien: <span class="say">„Ein Seefahrer hatte eine verrückte Idee: Er wollte nach Westen segeln, um nach Indien zu kommen.“</span><br>Stundenfrage an der Tafel: <b>Warum segelte Kolumbus nach Westen – und wo kam er wirklich an?</b><br><span class="who">S</span> äußern Vermutungen, L notiert sie an der Seitentafel.</td>
+        <td>UG</td>
+        <td class="med">Globus, Tafel, Seitentafel</td>
+        <td class="com">Problemorientierung; Vermutungen werden am Stundenende überprüft.</td>
+      </tr>
+      <tr>
+        <td class="time">8–18′</td>
+        <td class="phase"><b>Erarbeitung I</b><span>Warum nach Westen?</span></td>
+        <td><span class="who">L</span> Lehrererzählung (ca. 4 Min.): teure Gewürze, lange Handelswege und Zwischenhändler, Kolumbus’ Idee von der Kugelgestalt der Erde, Unterstützung durch das spanische Königspaar.<br><span class="who">S</span> lesen anschließend den Infotext auf dem AB und notieren zwei Gründe (Aufgabe 1).</td>
+        <td>Frontal → EA</td>
+        <td class="med">Lehrererzählung, AB Aufgabe 1</td>
+        <td class="com">Lehrererzählung schafft Anschaulichkeit; EA sichert das individuelle Verständnis (TZ 1). Wortspeicher für schwächere S.</td>
+      </tr>
+      <tr class="alt">
+        <td class="time">18–28′</td>
+        <td class="phase"><b>Erarbeitung II</b><span>Die Reise</span></td>
+        <td><span class="who">S</span> suchen in Partnerarbeit im Atlas Palos (Spanien), die Kanarischen Inseln und die Bahamas, verfolgen die Route mit dem Finger und tragen die Daten in den Zeitstrahl ein (Aufgabe 2).<br><span class="who">L</span> geht herum und unterstützt.</td>
+        <td>PA</td>
+        <td class="med">Atlas, AB Aufgabe 2</td>
+        <td class="com">Orientierungs- und Kartenkompetenz (TZ 2). Schnelle Paare: Zusatzaufgabe zur Dauer der Überfahrt (ca. 5 Wochen).</td>
+      </tr>
+      <tr>
+        <td class="time">28–35′</td>
+        <td class="phase"><b>Sicherung</b><span>Ergebnisse</span></td>
+        <td>Besprechung im UG, Tafelbild entsteht schrittweise: <i>Warum? – Die Reise – Ein Irrtum!</i><br><span class="who">L</span> ergänzt: Kolumbus glaubte bis zu seinem Tod, in Asien gewesen zu sein → „Indios“. Amerigo Vespucci erkannte einen neuen Kontinent → Name „Amerika“ (Karte von 1507).<br><span class="who">S</span> übertragen das Tafelbild.</td>
+        <td>UG</td>
+        <td class="med">Tafel, Heft</td>
+        <td class="com">Strukturierte Ergebnissicherung mit Rückbezug auf die Stundenfrage (TZ 1–3).</td>
+      </tr>
+      <tr class="alt">
+        <td class="time">35–42′</td>
+        <td class="phase"><b>Vertiefung</b><span>Perspektiv&shy;wechsel</span></td>
+        <td><span class="who">L</span> zeigt das Bild der Landung: <span class="say">„Schaut euch die Menschen am Strand an. Was denken sie wohl?“</span><br><span class="who">S</span> Think-Pair-Share: Gedanken eines Taíno-Kindes formulieren (Aufgabe 3).<br>Abschlussfrage: <b>Hat Kolumbus Amerika wirklich „entdeckt“?</b> → Dort lebten schon Millionen Menschen; Wikinger um 1000.</td>
+        <td>EA → PA → UG</td>
+        <td class="med">Bild (z. B. Vanderlyn, 1847), AB Aufgabe 3</td>
+        <td class="com">Multiperspektivität und Anbahnung von Urteilskompetenz (TZ 4); kritischer Umgang mit Begriffen.</td>
+      </tr>
+      <tr>
+        <td class="time">42–45′</td>
+        <td class="phase"><b>Ausklang</b><span>Hausaufgabe</span></td>
+        <td>Rückblick auf die Vermutungen vom Stundenbeginn: Was stimmte, was nicht?<br><b>HA (Wahl):</b> Tagebucheintrag am 12.10.1492 (5–6 Sätze) – aus Sicht eines Matrosen <i>oder</i> eines Taíno.</td>
+        <td>UG</td>
+        <td class="med">Seitentafel</td>
+        <td class="com">Abrundung der Stunde; Wahlaufgabe als Differenzierung, schreibender Perspektivwechsel.</td>
+      </tr>
+    </table>
+
+    <h2 class="sec"><span class="n">4</span>Medien &amp; Material</h2>
+    <div class="box">
+      <div class="chips">
+        <span class="chip">Gewürzdose (Pfeffer, Zimt, Nelken, Muskat)</span>
+        <span class="chip">Globus</span>
+        <span class="chip">Atlas</span>
+        <span class="chip">Lehrererzählung</span>
+        <span class="chip">Arbeitsblatt mit Infotext</span>
+        <span class="chip">Bild der Landung, z. B. J. Vanderlyn (1847) – zeigt die europäische Sicht</span>
+        <span class="chip">Tafel / Seitentafel</span>
+      </div>
+    </div>
+
+  </div>
+  <div class="foot"><span><b>Unterrichtsentwurf GPG 6</b> · Die Entdeckung Amerikas</span><span>Seite 2 / 4</span></div>
+</section>
+
+<!-- ======================= SEITE 3: Tafelbild ======================= -->
+<section class="page">
+  <div class="content">
+    <div class="head">
+      <div>
+        <div class="kicker">Geplantes Tafelbild</div>
+        <h1 style="font-size:18pt">Tafelbild &amp; Differenzierung</h1>
+      </div>
+    </div>
+
+    <div class="board" style="margin-top:5mm">
+      <h3>1492 – Kolumbus segelt nach Westen<small>Warum segelte Kolumbus nach Westen – und wo kam er wirklich an?</small></h3>
+      <div class="cols3">
+        <div>
+          <h4>Warum?</h4>
+          <ul>
+            <li>Gewürze und Gold aus Indien sind sehr wertvoll</li>
+            <li>Landweg: lang, gefährlich, viele Zwischenhändler → teuer</li>
+            <li>Idee: Die Erde ist eine Kugel <span class="arrow">→</span> nach Westen nach Indien</li>
+            <li>Spanisches Königspaar bezahlt die Reise</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Die Reise</h4>
+          <ul>
+            <li><b>3.8.1492</b> Abfahrt in Palos (Spanien) mit 3 Schiffen: Santa María, Pinta, Niña</li>
+            <li>Halt auf den Kanarischen Inseln</li>
+            <li><b>6.9.1492</b> ca. 5 Wochen über den Atlantik</li>
+            <li><b>12.10.1492</b> Landung auf Guanahani (Bahamas) – Kolumbus nennt sie „San Salvador“</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Ein Irrtum!</h4>
+          <ul>
+            <li>Kolumbus glaubt, in Indien zu sein <span class="arrow">→</span> nennt die Menschen „Indios“</li>
+            <li>In Wahrheit: ein neuer Kontinent</li>
+            <li>Amerigo Vespucci erkennt das <span class="arrow">→</span> Name „Amerika“ (1507)</li>
+          </ul>
+        </div>
+      </div>
+      <div class="bottom"><b>„Entdeckung“?</b> &nbsp; In Amerika lebten schon seit Jahrtausenden Millionen Menschen – zum Beispiel die Taíno.</div>
+    </div>
+
+    <h2 class="sec"><span class="n">5</span>Erwartungshorizont</h2>
+    <div class="two">
+      <div class="box">
+        <ul class="dots">
+          <li><b>Aufgabe 1:</b> Gewürze/Gold aus Indien sehr teuer · Landweg lang, gefährlich und durch Zwischenhändler teuer · Kolumbus wollte über den Westen schneller nach Indien.</li>
+          <li><b>Aufgabe 2:</b> 3.8.1492 Abfahrt in Palos · 6.9.1492 Abfahrt von den Kanaren · 12.10.1492 Landung auf Guanahani.</li>
+        </ul>
+      </div>
+      <div class="box">
+        <ul class="dots">
+          <li><b>Aufgabe 3:</b> z. B. „Was sind das für riesige Boote?“ · „Die Fremden sehen ganz anders aus – sind sie gefährlich?“ · „Wir leben doch schon immer hier!“</li>
+          <li><b>Zusatz:</b> ca. 5 Wochen (6.9. bis 12.10.).</li>
+        </ul>
+      </div>
+    </div>
+    <h2 class="sec"><span class="n">6</span>Differenzierung</h2>
+    <div class="two">
+      <div class="box">
+        <div class="kicker" style="margin-bottom:1.6mm">Unterstützung</div>
+        <ul class="dots">
+          <li>Wortspeicher auf dem Arbeitsblatt</li>
+          <li>Atlasseite vorgeben, Orte vorab markieren</li>
+          <li>Satzanfänge für Aufgabe 3: „Ich sehe …“, „Ich frage mich …“, „Ich habe Angst, dass …“</li>
+          <li>Leistungsgemischte Partnerpaare</li>
+        </ul>
+      </div>
+      <div class="box">
+        <div class="kicker" style="margin-bottom:1.6mm">Erweiterung</div>
+        <ul class="dots">
+          <li>Zusatzaufgabe: Dauer der Überfahrt berechnen</li>
+          <li>Recherche-Impuls: Welche Lebensmittel kamen aus Amerika zu uns? (Kartoffel, Mais, Tomate, Kakao)</li>
+          <li>Hausaufgabe mit Wahl der Perspektive</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="sec"><span class="n">7</span>Mögliche Anschlussstunden</h2>
+    <div class="box">
+      <ul class="dots">
+        <li><b>Folgen für die Menschen in Amerika:</b> Eroberung, Krankheiten, Zwangsarbeit</li>
+        <li><b>Was Amerika und Europa austauschten:</b> Pflanzen, Tiere und Krankheiten</li>
+        <li><b>Andere Entdeckungsreisen:</b> Vasco da Gama (Seeweg nach Indien) und Magellan</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot"><span><b>Unterrichtsentwurf GPG 6</b> · Die Entdeckung Amerikas</span><span>Seite 3 / 4</span></div>
+</section>
+
+<!-- ======================= SEITE 4: Arbeitsblatt ======================= -->
+<section class="page">
+  <div class="content">
+    <div class="ab-head">
+      <div>
+        <div class="kicker">GPG · Arbeitsblatt</div>
+        <h1>1492 – Kolumbus segelt nach Westen</h1>
+      </div>
+      <div class="fields"><div>Name:<span></span></div><div>Datum:<span></span></div></div>
+    </div>
+
+    <div class="info">
+      <p>Vor über 500 Jahren waren Gewürze wie Pfeffer, Zimt und Muskat in Europa fast so wertvoll wie Gold. Sie kamen aus Indien und anderen Ländern Asiens. Auf dem langen Landweg verdienten viele Händler mit – deshalb waren die Waren sehr teuer. Die Europäer suchten daher einen <b>Seeweg nach Indien</b>.</p>
+      <p>Der Seefahrer <b>Christoph Kolumbus</b> aus Genua hatte eine kühne Idee: Weil die Erde eine Kugel ist, wollte er einfach nach <b>Westen</b> segeln, um Indien zu erreichen. Das spanische Königspaar Isabella und Ferdinand bezahlte seine Reise.</p>
+      <p>Am <b>3. August 1492</b> fuhr Kolumbus mit drei Schiffen – der Santa María, der Pinta und der Niña – vom spanischen Hafen <b>Palos</b> ab. Nach einem Halt auf den <b>Kanarischen Inseln</b> segelten die Männer ab dem 6. September rund fünf Wochen über den offenen Atlantik. Am <b>12. Oktober 1492</b> betraten sie eine Insel. Die Menschen, die dort lebten, die <b>Taíno</b>, nannten sie <b>Guanahani</b>.</p>
+    </div>
+
+    <div class="task">
+      <div class="t"><span class="nr">1</span><span><b>Lies den Text.</b> Nenne zwei Gründe, warum Kolumbus nach Westen segelte.</span></div>
+      <div class="lines"><i></i><i></i></div>
+    </div>
+
+    <div class="task">
+      <div class="t"><span class="nr">2</span><span><b>Atlas-Detektive</b> <span class="pa">PARTNERARBEIT</span> Sucht im Atlas Spanien, die Kanarischen Inseln und die Bahamas. Verfolgt die Route mit dem Finger. Tragt dann die fehlenden Angaben in den Zeitstrahl ein.</span></div>
+      <div class="timeline">
+        <div class="tbox"><div class="card"><span class="gap"></span>. <span class="gap"></span>. 1492<span class="what">Abfahrt im Hafen <span class="gapw"></span></span></div></div>
+        <div class="tbox"><div class="card">6. September 1492<span class="what">Abfahrt von den <span class="gapw"></span></span></div></div>
+        <div class="tbox"><div class="card"><span class="gap"></span>. <span class="gap"></span>. 1492<span class="what">Landung auf der Insel <span class="gapw"></span></span></div></div>
+      </div>
+    </div>
+
+    <div class="task">
+      <div class="t"><span class="nr">3</span><span><b>Perspektivwechsel:</b> Stell dir vor, du bist ein Taíno-Kind und siehst die großen fremden Schiffe am Strand. Was denkst du? Schreibe zwei Sätze.</span></div>
+      <div class="lines"><i></i><i></i><i></i></div>
+    </div>
+
+    <div class="star"><b>★ Zusatzaufgabe:</b> Wie lange dauerte die Fahrt von den Kanarischen Inseln bis nach Guanahani? Rechne nach. <span style="display:inline-block;width:40mm;border-bottom:1px solid #c9a35a"></span></div>
+
+    <div class="words"><b>Wortspeicher</b> Gewürze · teuer · Zwischenhändler · Kugel · Westen · Seeweg · Indien · Palos · Kanarische Inseln · Guanahani</div>
+  </div>
+  <div class="foot"><span><b>Arbeitsblatt GPG 6</b> · Die Entdeckung Amerikas</span><span>Seite 4 / 4</span></div>
+</section>
+
+</body>
+</html>
