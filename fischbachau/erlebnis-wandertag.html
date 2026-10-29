@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>Erlebnis-Wandertag Schliersbergalm – Seminar 39.2</title>
+<style>
+  @font-face { font-family: "Fraunces"; font-style: normal; font-weight: 100 900; src: url("fonts/fraunces-latin.woff2") format("woff2"); }
+  @font-face { font-family: "Fraunces"; font-style: italic; font-weight: 100 900; src: url("fonts/fraunces-italic-latin.woff2") format("woff2"); }
+
+  :root {
+    --pine: #1d3a2c;
+    --pine-2: #2c5440;
+    --pine-3: #3f6d52;
+    --moss: #7a9a58;
+    --ember: #d4622a;
+    --amber: #eaa53c;
+    --cream: #f6f1e6;
+    --paper: #fffdf8;
+    --ink: #1b221e;
+    --muted: #5b6a61;
+    --line: #e3dccb;
+    --red: #c62828;
+  }
+
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--cream); }
+  body {
+    font-family: "Inter", "Liberation Sans", sans-serif;
+    color: var(--ink); font-size: 7.9pt; line-height: 1.33;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  .page { position: relative; width: 210mm; height: 297mm; overflow: hidden; background: var(--cream); }
+  .content { padding: 0 12mm; }
+
+  /* ---------- Kopf ---------- */
+  .band {
+    position: relative; height: 29mm; color: var(--cream);
+    background:
+      radial-gradient(90mm 40mm at 88% 0%, rgba(234,165,60,.22), transparent 70%),
+      linear-gradient(180deg, #17301f 0%, var(--pine) 60%, var(--pine-2) 100%);
+    padding: 6mm 12mm 0;
+  }
+  .band svg { position: absolute; left: 0; bottom: -1px; width: 100%; height: 10mm; }
+  .kicker { font-size: 7pt; letter-spacing: .2em; text-transform: uppercase; color: var(--amber); font-weight: 600; }
+  .band h1 { font-family: "Fraunces", serif; font-weight: 800; font-size: 19pt; line-height: 1.05; margin-top: 1mm; }
+  .band h1 em { font-style: italic; font-weight: 600; color: var(--amber); }
+  .band .side { margin-top: 1.2mm; font-size: 7.6pt; color: #cfdacb; }
+  .band .side b { color: var(--cream); font-weight: 700; }
+
+  .alert {
+    margin-top: 2.6mm; border-radius: 2.6mm; padding: 1.6mm 3.6mm;
+    background: linear-gradient(120deg, #b71c1c 0%, var(--red) 60%, #e0442f 100%); color: #fff;
+    display: flex; align-items: center; gap: 3mm; font-size: 7.8pt; white-space: nowrap;
+  }
+  .alert b { font-family: "Fraunces", serif; font-weight: 800; font-size: 10.5pt; }
+  .alert span { opacity: .92; }
+  .alert .sep { margin-left: auto; }
+
+  /* ---------- Abschnitte ---------- */
+  .sec { display: flex; align-items: center; gap: 2.2mm; margin: 3mm 0 1.6mm; }
+  .sec .num {
+    font-family: "Fraunces", serif; font-weight: 800; font-size: 7.8pt;
+    width: 5.2mm; height: 5.2mm; border-radius: 50%; background: var(--ember); color: var(--paper);
+    display: inline-flex; align-items: center; justify-content: center; flex: none;
+  }
+  .sec h2 { font-family: "Fraunces", serif; font-weight: 700; font-size: 12pt; color: var(--pine); line-height: 1; }
+  .sec .dur { font-size: 6.6pt; letter-spacing: .14em; text-transform: uppercase; color: var(--ember); font-weight: 700; margin-left: 1mm; }
+  .sec .hint { margin-left: auto; font-size: 7pt; color: var(--muted); }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+  .card { background: var(--paper); border: 1px solid var(--line); border-radius: 2.6mm; padding: 2.4mm 3mm; }
+
+  /* Theorie */
+  .rules { list-style: none; counter-reset: r; }
+  .rules li { counter-increment: r; display: grid; grid-template-columns: 4.4mm 1fr; gap: 1.4mm; padding: .7mm 0; }
+  .rules li + li { border-top: 1px dotted var(--line); }
+  .rules li::before {
+    content: counter(r); font-family: "Fraunces", serif; font-weight: 800; font-size: 8pt; color: var(--pine-3);
+    width: 4.4mm; height: 4.4mm; border-radius: 50%; background: #ebf0e4; display: flex; align-items: center; justify-content: center;
+  }
+  .rules b { color: var(--pine); }
+  .rules li.sos::before { background: #fde3e1; color: var(--red); }
+  .rules li.sos b { color: var(--red); }
+
+  /* Aufwärmen */
+  .warm { width: 100%; border-collapse: collapse; }
+  .warm td { padding: 1mm 0; vertical-align: top; }
+  .warm tr + tr td { border-top: 1px dotted var(--line); }
+  .warm td.t { width: 13mm; font-family: "Fraunces", serif; font-weight: 700; color: var(--pine); font-size: 8.2pt; white-space: nowrap; }
+  .warm b { color: var(--pine); }
+  .warm tr.game td { background: #fbefe0; }
+  .warm tr.game td:first-child { border-radius: 1.6mm 0 0 1.6mm; padding-left: 1.6mm; }
+  .warm tr.game td:last-child { border-radius: 0 1.6mm 1.6mm 0; padding-right: 1.6mm; }
+
+  /* Fakten */
+  .stops { list-style: none; }
+  .stop { display: grid; grid-template-columns: 14.5mm 1fr; gap: 1.6mm; padding: 1.15mm 0; }
+  .stop + .stop { border-top: 1px dotted var(--line); }
+  .stop .n { font-size: 5.8pt; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 700; padding-top: .3mm; line-height: 1.25; }
+  .stop .n b { display: block; font-family: "Fraunces", serif; font-size: 11pt; letter-spacing: 0; color: var(--ember); line-height: 1; }
+  .stop .q { font-weight: 700; color: var(--ink); }
+  .stop .a { color: var(--pine); font-weight: 700; }
+  .stop p { color: var(--muted); margin-top: .3mm; }
+
+  /* Erlebnispädagogik */
+  .games { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.2mm; }
+  .game { background: var(--paper); border: 1px solid var(--line); border-radius: 2.6mm; padding: 1.9mm 2.6mm 2.1mm; }
+  .game header { display: flex; align-items: baseline; gap: 1.6mm; }
+  .game .no { font-family: "Fraunces", serif; font-weight: 800; font-size: 12pt; color: var(--ember); line-height: 1; }
+  .game h3 { font-size: 8.8pt; font-weight: 700; color: var(--pine); line-height: 1.2; }
+  .game .min { margin-left: auto; font-size: 6.4pt; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; color: var(--paper); background: var(--pine-3); border-radius: 1mm; padding: .2mm 1.4mm; white-space: nowrap; }
+  .game p { margin-top: .9mm; color: var(--ink); }
+  .game .why { margin-top: .7mm; font-size: 6.9pt; color: var(--muted); font-style: italic; }
+  .game.star { border-color: #efc9a6; background: #fff6ec; }
+
+  .refl {
+    margin-top: 3mm; border-radius: 2.6mm; color: var(--cream); padding: 2.4mm 3.6mm;
+    background:
+      radial-gradient(70mm 30mm at 100% 0%, rgba(234,165,60,.25), transparent 70%),
+      linear-gradient(160deg, var(--pine) 0%, var(--pine-2) 100%);
+    display: block;
+  }
+  .refl .kicker { font-size: 6.4pt; }
+  .refl p { margin-top: .6mm; color: #e3ebdf; }
+  .refl .backup { margin-top: 1.6mm; padding-top: 1.4mm; border-top: 1px solid rgba(246,241,230,.2); font-size: 7.2pt; color: #cfdacb; }
+  .refl .backup b { font-family: "Fraunces", serif; font-size: 9.5pt; color: var(--amber); }
+
+  .foot {
+    position: absolute; left: 12mm; right: 12mm; bottom: 6mm;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 6.6pt; color: var(--muted); letter-spacing: .04em;
+    border-top: 1px solid var(--line); padding-top: 1.8mm;
+  }
+  .foot b { color: var(--pine); }
+</style>
+</head>
+<body>
+<section class="page">
+  <header class="band">
+    <div class="kicker">Seminar 39.2 &nbsp;·&nbsp; Donnerstag, 29.10.2026</div>
+    <h1>Erlebnis-Wandertag <em>zur Schliersbergalm</em></h1>
+    <div class="side"><b>Team: Patrick · Fabio · Felix · Kathrin</b> &nbsp;·&nbsp; ca. 1¼ Std. Aufstieg · rund 280 Hm · Alm auf rund 1.060 m</div>
+    <svg viewBox="0 0 840 40" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 30 L90 22 L170 28 L260 16 L340 26 L430 18 L520 28 L600 10 L680 24 L760 14 L840 22 V40 H0Z" fill="#3f6d52"/>
+      <path d="M0 36 Q140 30 280 34 T560 33 T840 31 V40 H0Z" fill="#f6f1e6"/>
+    </svg>
+  </header>
+
+  <div class="content">
+    <div class="alert"><b>Verbandskasten aus einem Auto mitnehmen!</b><span class="sep">Sonst kein Material nötig – nur Natur &amp; Gruppe</span></div>
+
+    <div class="cols">
+      <div>
+        <div class="sec"><span class="num">1</span><h2>Theorie-Input</h2><span class="dur">ca. 5 Min · vor dem Start</span></div>
+        <div class="card">
+          <ol class="rules">
+            <li><span><b>Ausrüstung:</b> Schuhe fest geschnürt, Regenjacke, Wasser, warme Schicht?</span></li>
+            <li><span><b>Tempo:</b> Die oder der Langsamste gibt es vor. Spitze vorne, Schlusslicht hinten – keiner überholt, keiner fällt zurück.</span></li>
+            <li><span><b>Buddy-System:</b> Zweierteams achten aufeinander. Nach jeder Pause durchzählen.</span></li>
+            <li><span><b>Herbst-Untergrund:</b> Nasses Laub, Wurzeln, Steine sind rutschig. Bergab kleine Schritte, Knie leicht gebeugt.</span></li>
+            <li><span><b>Zwiebelprinzip:</b> Jacke aus, <i>bevor</i> man schwitzt – an, <i>bevor</i> man friert. Regelmäßig trinken.</span></li>
+            <li><span><b>Auf den Wegen bleiben</b> und Müll wieder mitnehmen.</span></li>
+            <li class="sos"><span><b>Notfall: 112.</b> Alpines Notsignal: 6× pro Minute ein Zeichen (Rufen, Pfeifen, Licht), dann 1 Min. Pause. Antwort: 3× pro Minute.</span></li>
+          </ol>
+        </div>
+
+        <div class="sec"><span class="num">2</span><h2>Aufwärmen</h2><span class="dur">ca. 10 Min · eine:r macht vor</span></div>
+        <div class="card">
+          <table class="warm">
+            <tr><td class="t">0–2′</td><td><b>Oberkörper:</b> Kopf sanft nicken &amp; drehen, Schultern kreisen, Arme vor- und rückwärts kreisen</td></tr>
+            <tr><td class="t">2–4′</td><td><b>Hüfte &amp; Beine:</b> Hüfte, Knie und Fußgelenke kreisen</td></tr>
+            <tr><td class="t">4–6′</td><td><b>Aktivieren:</b> Knieheben auf der Stelle, 15× auf die Zehenspitzen (Wadenpumpe)</td></tr>
+            <tr><td class="t">6–7′</td><td><b>Kräftigen:</b> 10 langsame Kniebeugen, 5 Ausfallschritte pro Seite</td></tr>
+            <tr class="game"><td class="t">7–10′</td><td><b>Schnick-Schnack-Schnuck mit Fanclub:</b> Wer verliert, wird Fan der Gewinner:in und feuert lautstark an – bis zum großen Finale.</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <div class="sec"><span class="num">3</span><h2>Fakten-Stopps</h2><span class="dur">beim Aufstieg · Schätzfragen</span></div>
+        <div class="card">
+          <ol class="stops">
+            <li class="stop"><div class="n"><b>1</b>Der See</div><div><span class="q">Wie tief ist der Schliersee an der tiefsten Stelle?</span> <span class="a">→ ca. 40 m</span><p>Liegt auf 777 m, ca. 2,2 km² groß, 2,3 km lang und 1,3 km breit. Einzige Insel: die Wörth, etwa 2 Hektar.</p></div></li>
+            <li class="stop"><div class="n"><b>2</b>Wasserweg</div><div><span class="q">Wo landet das Wasser aus dem Schliersee?</span> <span class="a">→ im Schwarzen Meer</span><p>Über Schlierach, Mangfall, Inn und Donau.</p></div></li>
+            <li class="stop"><div class="n"><b>3</b>Geschichte</div><div><span class="q">Wie alt ist Schliersee ungefähr?</span> <span class="a">→ über 1.200 Jahre</span><p>Ein Kloster wurde 779 erstmals urkundlich erwähnt – davon hat der Ort seinen Namen.</p></div></li>
+            <li class="stop"><div class="n"><b>4</b>Kultur</div><div><span class="q">Was gilt hier als das älteste in ganz Deutschland?</span> <span class="a">→ das Schlierseer Bauerntheater</span><p>1892 gegründet von Konrad Dreher und Xaver Terofal.</p></div></li>
+            <li class="stop"><div class="n"><b>5</b>Sport</div><div><span class="q">Welcher Olympiasieger kommt aus Schliersee?</span> <span class="a">→ Markus Wasmeier</span><p>2× Gold im Ski alpin 1994 in Lillehammer. Heute betreibt er ein Freilichtmuseum mit alten Bauernhöfen in Schliersee-Neuhaus.</p></div></li>
+            <li class="stop"><div class="n"><b>6</b>Oben</div><div><span class="q">Schliersbergalm, rund 1.060 m</span><p>Liegt am Schliersberg, höchster Punkt ist der Rohnberg (1.264 m). Hoch geht’s auch mit einer nostalgischen Seilbahn (ca. 4 Min.), runter mit einer Sommerrodelbahn (ca. 1 km, je nach Wetter etwa April–Oktober). <b style="color:var(--ink)">Almen sind Sommerweiden</b> – das Vieh kommt meist im September beim Almabtrieb ins Tal.</p></div></li>
+          </ol>
+        </div>
+        <div class="refl">
+      <div>
+        <div class="kicker">Reflexionsfragen, falls Zeit bleibt</div>
+        <p>Was hat beim Helium-Stab geholfen? · Wer hat geführt? · Wie war es ohne Sprache? · Was davon kann man mit einer Klasse machen?</p>
+      </div>
+      <div class="backup"><b>Ersatzspiel:</b> „Ochs am Berg“ – geht immer</div>
+    </div>
+      </div>
+    </div>
+
+    <div class="sec"><span class="num">4</span><h2>Erlebnispädagogik oben</h2><span class="dur">ca. 30 Min</span><span class="hint">ebene Wiese suchen, weg von steilen Kanten</span></div>
+    <div class="games">
+      <div class="game"><header><span class="no">1</span><h3>Bis 20 zählen</h3><span class="min">3 Min</span></header>
+        <p>Kreis, Augen zu, gemeinsam bis 20 zählen. Jede:r darf jederzeit die nächste Zahl sagen – sprechen zwei gleichzeitig: von vorne.</p>
+        <div class="why">Thema: aufeinander hören</div></div>
+      <div class="game"><header><span class="no">2</span><h3>Schweige-Reihe</h3><span class="min">5 Min</span></header>
+        <p>Ohne Sprechen nach Geburtstag (Tag &amp; Monat) aufstellen, nur Gesten. Dann auflösen. Schwerer: auf Baumstamm oder Bank (nur wenn sicher).</p>
+        <div class="why">Thema: Kommunikation ohne Sprache</div></div>
+      <div class="game"><header><span class="no">3</span><h3>Gordischer Knoten</h3><span class="min">5 Min</span></header>
+        <p>Zwei Gruppen à 6–7. Augen zu, Hände in die Mitte, zwei <i>verschiedene</i> Hände greifen (nicht vom Nachbarn). Augen auf, entknoten ohne loszulassen.</p>
+        <div class="why">Thema: gemeinsam Lösungen finden</div></div>
+      <div class="game"><header><span class="no">4</span><h3>Helium-Stab</h3><span class="min">7 Min</span></header>
+        <p>Langen, geraden Ast suchen (1,5–2 m). Zwei Reihen gegenüber, Ast auf den Zeigefingern gemeinsam ablegen – alle Finger immer am Ast. Meist wandert er erst nach oben! Runde 2: ohne Sprechen.</p>
+        <div class="why">Thema: Abstimmung &amp; Führung</div></div>
+      <div class="game star"><header><span class="no">5</span><h3>Land-Art</h3><span class="min">7 Min</span></header>
+        <p>2–3 Gruppen legen aus Laub, Zapfen, Steinen ein Bild: „Was nehmen wir aus den zwei Tagen mit?“ Nur Liegendes nehmen. Rundgang + <b>Gruppenfoto mit Seminar-T-Shirts!</b></p>
+        <div class="why">Thema: kreativ als Team</div></div>
+      <div class="game"><header><span class="no">6</span><h3>Redestein</h3><span class="min">3 Min</span></header>
+        <p>Ein Stein geht im Kreis, jede:r sagt einen Satz: „Was nehme ich für meine Arbeit mit einer Gruppe oder Klasse mit?“ Danach alles zurück in die Natur.</p>
+        <div class="why">Thema: Reflexion &amp; Transfer</div></div>
+    </div>
+
+  </div>
+
+  <div class="foot"><span><b>Erlebnis-Wandertag Schliersbergalm</b> &nbsp;·&nbsp; Seminar 39.2 &nbsp;·&nbsp; 29.10.2026</span><span>Zahlen gerundet – Quellen weichen leicht ab</span></div>
+</section>
+</body>
+</html>
